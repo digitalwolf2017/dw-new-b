@@ -60,13 +60,14 @@ export default function GrowthShowcase() {
   );
 
   return (
-    <section
-      ref={sectionRef}
-      id="work"
-      data-no-global-reveal
-      className={cn("relative w-full overflow-hidden bg-base", !reduced && "lg:h-screen")}
-    >
-      {/* WinWinGrowth stays completely still (sticky underneath) */}
+    <div>
+      <section
+        ref={sectionRef}
+        id="work"
+        data-no-global-reveal
+        className={cn("relative w-full overflow-hidden bg-base", !reduced && "lg:h-screen")}
+      >
+        {/* WinWinGrowth stays completely still (sticky underneath) */}
       <div className={cn("w-full", !reduced && "lg:h-full lg:absolute lg:inset-0 z-0")}>
         <WinWinGrowth />
       </div>
@@ -79,5 +80,6 @@ export default function GrowthShowcase() {
         <AiWorkflow trackRef={aiTrackRef} wrapperRef={aiWrapperRef} />
       </div>
     </section>
+    </div>
   );
 }
