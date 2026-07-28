@@ -55,6 +55,8 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
+import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -65,9 +67,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-base text-ink-secondary min-h-full antialiased">
-        <Navbar />
-        {children}
-        <Footer />
+        <SmoothScrollProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
