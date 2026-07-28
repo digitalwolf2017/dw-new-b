@@ -5,7 +5,7 @@ import { Stats } from "@/components/sections/stats";
 import { ServiceRail } from "@/components/sections/service-rail";
 import { TechMarquee } from "@/components/sections/tech-marquee";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
-import { JourneyPath } from "@/components/sections/journey-path";
+import { AgencyProcess } from "@/components/sections/agency-process";
 import { Martech } from "@/components/sections/martech";
 import GrowthShowcase from "@/components/sections/GrowthShowcase";
 import { Contact } from "@/components/sections/contact";
@@ -23,7 +23,7 @@ export default function Home() {
         <ServiceRail />
         <TechMarquee />
         <WhyChooseUs />
-        <JourneyPath />
+        <AgencyProcess />
         <Martech />
         <GrowthShowcase />
         <Contact />
