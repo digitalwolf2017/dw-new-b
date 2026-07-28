@@ -38,7 +38,7 @@ const DEVELOPMENT_SERVICES = [
     title: "Web Apps",
     description: "Building scalable platforms for the future.",
     icon: Cpu,
-    image: "https://picsum.photos/seed/service5/375/600",
+    image: "/images/app.webp",
   },
   {
     index: "04",
@@ -46,7 +46,7 @@ const DEVELOPMENT_SERVICES = [
     title: "iOS & Android",
     description: "Native and cross-platform mobile experiences.",
     icon: Smartphone,
-    image: "https://picsum.photos/seed/service7/375/600",
+    image: "/images/app.webp",
   },
   {
     index: "05",
@@ -54,7 +54,7 @@ const DEVELOPMENT_SERVICES = [
     title: "DevOps & Cloud",
     description: "Scalable cloud solutions and CI/CD pipelines.",
     icon: Cloud,
-    image: "https://picsum.photos/seed/service8/375/600",
+    image: "/images/web-development.webp",
   },
   {
     index: "06",
@@ -73,7 +73,7 @@ const MARKETING_SERVICES = [
     title: "Performance",
     description: "ROI-obsessed marketing campaigns at scale.",
     icon: LineChart,
-    image: "https://picsum.photos/seed/service1/375/600",
+    image: "/images/ppc.webp",
   },
   {
     index: "02",
@@ -89,7 +89,7 @@ const MARKETING_SERVICES = [
     title: "SEO",
     description: "Dominating search engines with content.",
     icon: Search,
-    image: "https://picsum.photos/seed/service6/375/600",
+    image: "/images/seo.webp",
   },
   {
     index: "04",
@@ -97,7 +97,7 @@ const MARKETING_SERVICES = [
     title: "Social Marketing",
     description: "Engaging social campaigns and community management.",
     icon: Share2,
-    image: "https://picsum.photos/seed/service10/375/600",
+    image: "/images/video-editing.webp",
   },
   {
     index: "05",

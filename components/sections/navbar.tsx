@@ -4,9 +4,9 @@ import { SolidButton } from "@/components/ui/solid-button";
 
 export function Navbar() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex h-16.75 items-center border-b border-line bg-nav backdrop-blur-[6px]">
+    <header className="fixed top-0 left-0 right-0 z-50 flex h-20 items-center border-b border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
-        <Link href="/" className="font-display text-xl font-bold tracking-widest text-ink">
+        <Link href="/" className="font-display text-xl md:text-2xl font-bold tracking-widest text-white">
           DIGITALWOLF
         </Link>
 
@@ -15,9 +15,9 @@ export function Navbar() {
             <Link
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-eyebrow text-ink-secondary transition-colors hover:text-white"
+              className="text-xs font-bold tracking-widest uppercase text-white/80 transition-colors hover:text-white"
             >
-              {item.toUpperCase()}
+              {item}
             </Link>
           ))}
         </nav>
@@ -25,7 +25,7 @@ export function Navbar() {
         <div className="flex items-center gap-6">
           <button
             type="button"
-            className="text-ink-secondary transition-colors hover:text-white"
+            className="text-white/80 transition-colors hover:text-white"
             aria-label="Search"
           >
             <Search className="h-5 w-5" />

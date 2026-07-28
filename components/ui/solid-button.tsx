@@ -11,10 +11,10 @@ const SIZE = {
 
 const BASE =
   "inline-flex items-center justify-center font-sans font-bold uppercase " +
-  "bg-surface-invert text-ink-invert cursor-pointer " +
-  "transition-[background-color,box-shadow,transform] " +
+  "bg-transparent border border-white/30 text-white cursor-pointer " +
+  "transition-all " +
   "duration-[var(--duration-fast)] ease-(--ease-out-quart) " +
-  "hover:bg-white hover:shadow-accent-glow active:translate-y-px " +
+  "hover:bg-white hover:text-black hover:shadow-accent-glow active:translate-y-px " +
   "disabled:pointer-events-none disabled:opacity-50";
 
 type ButtonProps = { href?: undefined } & React.ComponentPropsWithoutRef<"button">;

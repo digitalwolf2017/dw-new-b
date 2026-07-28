@@ -27,7 +27,7 @@ export function AgencyProcess() {
             OUR<br />AGENCY<br />PROCESS
           </DisplayTitle>
           <div className="h-px w-16 bg-white/30 my-2" />
-          <Body className="text-ink-secondary/90 max-w-sm text-sm sm:text-base leading-relaxed">
+          <Body className="text-ink-secondary/90 max-w-sm text-sm leading-relaxed">
             Our capabilities span the full digital spectrum, from creative direction
             to technical automation. We don&rsquo;t just build, we architect for
             conversion.
