@@ -29,8 +29,8 @@ export default function GrowthShowcase() {
           const aiTrackDist = () => Math.max(0, aiTrack.scrollWidth - window.innerWidth);
 
           const tl = gsap.timeline();
-          // Initially pause
-          tl.to({}, { duration: 0.2 });
+          // Initially pause (creates a "fake scroll" so the user can watch WinWinGrowth)
+          tl.to({}, { duration: 1.0 });
           // Slide AiWorkflow in from the right (100vw) to cover WinWinGrowth (0)
           tl.fromTo(
             aiContainer,
@@ -47,7 +47,8 @@ export default function GrowthShowcase() {
           ScrollTrigger.create({
             trigger: sectionRef.current,
             start: "top top",
-            end: () => `+=${slideDistance() * 1.5 + aiTrackDist()}`,
+            // Add extra distance (slideDistance * 2.5) to account for the 1.0 pause duration
+            end: () => `+=${slideDistance() * 2.5 + aiTrackDist()}`,
             pin: true,
             animation: tl,
             scrub: 1,
