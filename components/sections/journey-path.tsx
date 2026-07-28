@@ -54,7 +54,7 @@ export function JourneyPath() {
       </div>
 
       {/* Desktop Layout */}
-      <div className="relative mx-auto hidden h-[1100px] w-full container md:block">
+      <div className="relative mx-auto hidden h-275 w-full container md:block">
         {/* The SVG Dotted Path */}
         <svg
           viewBox="0 0 1000 1100"

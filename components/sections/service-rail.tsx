@@ -145,8 +145,6 @@ export function ServiceRail() {
       }
     });
 
-    const amountToScroll = getScrollAmount();
-
     // 1. The horizontal scroll translation
     tl.to(scrollContainer, {
       x: () => -getScrollAmount(),
