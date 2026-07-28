@@ -22,7 +22,7 @@ const DEVELOPMENT_SERVICES = [
     title: "AI Automation",
     description: "Optimizing operational workflows with intelligent systems.",
     icon: Bot,
-    image: "https://picsum.photos/seed/service4/375/600",
+    image: "/images/ui-ux.webp",
   },
   {
     index: "02",
@@ -30,7 +30,7 @@ const DEVELOPMENT_SERVICES = [
     title: "UI/UX Design",
     description: "Creating intuitive interfaces that convert.",
     icon: PenTool,
-    image: "https://picsum.photos/seed/service3/375/600",
+    image: "/images/ui-ux.webp",
   },
   {
     index: "03",
@@ -160,7 +160,7 @@ export function ServiceRail() {
   return (
     <div ref={containerRef} className="relative bg-background" style={{ height: "300vh" }}>
       <section id="services" className="sticky top-0 flex h-screen flex-col overflow-hidden py-12 md:py-24">
-        <div className="shrink-0 mx-auto mb-8 md:mb-16 flex w-full container flex-col gap-8 px-5 sm:px-8 lg:flex-row lg:items-end lg:justify-between lg:px-12">
+        <div className="shrink-0 mx-auto mb-8 md:mb-16 flex w-full container flex-col gap-8 px-5 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
         <SectionHeader
           eyebrow="OUR SERVICES"
           title="WHAT WE BUILD"
@@ -217,11 +217,12 @@ export function ServiceRail() {
                       alt={service.title}
                       width={375}
                       height={600}
-                      className="absolute inset-0 h-full w-full object-cover"
+                      wrapperClassName="absolute inset-0 h-full w-full"
+                      className="h-full w-full object-cover opacity-20"
                       unoptimized
                     />
                     {/* Gradient Overlay for text readability */}
-                    <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/20 to-black/90" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent" />
                     
                     {/* Top Badge */}
                     <div className="absolute left-6 right-6 top-6 flex items-center justify-between text-white/80">
