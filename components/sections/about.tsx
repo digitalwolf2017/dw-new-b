@@ -25,13 +25,13 @@ export function About() {
             ABOUT US
           </Heading>
           <div className="flex flex-col gap-4">
-            <Body className="text-ink-secondary">
+            <Body size="lg" className="text-ink-secondary">
               Digital Wolf helps businesses navigate the evolving digital landscape
               through strategy, technology, and innovation. Our multidisciplinary team 
               combines creative vision with analytical rigor to architect custom digital 
               experiences that resonate with audiences.
             </Body>
-            <Body className="text-ink-secondary">
+            <Body size="lg" className="text-ink-secondary">
               We believe that true growth requires both aesthetic excellence and deep 
               technical capability. We integrate SEO, Branding, Performance Marketing, AI, 
               and Technical solutions to create measurable business growth.
@@ -42,15 +42,15 @@ export function About() {
         <div className="flex flex-col gap-8 sm:flex-row">
           <div className="flex flex-col gap-4">
             <Code className="h-6 w-6 text-white" strokeWidth={1.5} />
-            <Heading as="h3" className="text-lg text-white leading-tight font-medium">One Connected<br/>Ecosystem</Heading>
-            <Body className="text-sm text-ink-secondary">
+            <Heading as="h3" className="text-lg text-white leading-[1.1] font-semibold">One Connected<br/>Ecosystem</Heading>
+            <Body  className="text-md text-ink-secondary leading-tight">
               We integrate SEO, Branding, Performance Marketing, AI, and Technical solutions to create measurable business growth.
             </Body>
           </div>
           <div className="flex flex-col gap-4">
             <TerminalSquare className="h-6 w-6 text-white" strokeWidth={1.5} />
-            <Heading as="h3" className="text-lg text-white leading-tight font-medium">Built on<br/>Partnership</Heading>
-            <Body className="text-sm text-ink-secondary">
+            <Heading as="h3" className="text-lg text-white leading-[1.1] font-semibold">Built on<br/>Partnership</Heading>
+            <Body className="text-md text-ink-secondary leading-tight">
               Working as an extension of your team, we deliver sustainable growth through collaboration, transparency, and continuous optimisation.
             </Body>
           </div>

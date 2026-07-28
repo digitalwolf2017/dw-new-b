@@ -8,6 +8,7 @@ import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { AgencyProcess } from "@/components/sections/agency-process";
 import { Martech } from "@/components/sections/martech";
 import GrowthShowcase from "@/components/sections/GrowthShowcase";
+import { SocialLinks } from "@/components/sections/social-links";
 import { Contact } from "@/components/sections/contact";
 
 import { GlobalScrollReveal } from "@/components/ui/global-scroll-reveal";
@@ -26,6 +27,7 @@ export default function Home() {
         <AgencyProcess />
         <Martech />
         <GrowthShowcase />
+        <SocialLinks />
         <Contact />
       </GlobalScrollReveal>
     </main>

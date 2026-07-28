@@ -3,7 +3,7 @@ import { DisplayTitle } from "@/components/ui/display-title";
 
 function ProcessStep({ number, title, desc }: { number: string, title: string, desc: string }) {
   return (
-    <div className="flex items-start gap-6 sm:gap-8 max-w-[420px]">
+    <div className="flex items-start gap-6 sm:gap-8 max-w-105">
       <div className="font-serif text-5xl sm:text-6xl text-ink-secondary/30 leading-none -mt-1">
         {number}
       </div>
@@ -21,7 +21,7 @@ export function AgencyProcess() {
     <section className="mx-auto flex w-full container flex-col lg:flex-row gap-16 lg:gap-8 px-5 py-24 sm:px-8 lg:px-12 relative">
       
       {/* Left Column: Sticky Title */}
-      <div className="w-full lg:w-5/12 flex-shrink-0">
+      <div className="w-full lg:w-5/12 shrink-0">
         <div className="flex flex-col gap-6 lg:sticky lg:top-32">
           <DisplayTitle className="text-4xl sm:text-5xl uppercase leading-tight">
             OUR<br />AGENCY<br />PROCESS
