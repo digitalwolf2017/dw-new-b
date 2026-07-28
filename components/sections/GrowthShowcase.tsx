@@ -63,6 +63,7 @@ export default function GrowthShowcase() {
     <section
       ref={sectionRef}
       id="work"
+      data-no-global-reveal
       className={cn("relative w-full overflow-hidden bg-base", !reduced && "lg:h-screen")}
     >
       {/* WinWinGrowth stays completely still (sticky underneath) */}
@@ -73,7 +74,7 @@ export default function GrowthShowcase() {
       {/* AiWorkflow is initially shifted 100vw to the right, then slides in over it */}
       <div 
         ref={aiContainerRef} 
-        className={cn("w-full z-10", !reduced && "lg:h-full lg:absolute lg:inset-0 shadow-[-20px_0_50px_rgba(0,0,0,0.5)]")}
+        className={cn("w-full z-10", !reduced && "lg:h-full lg:absolute lg:inset-0 lg:translate-x-[100vw] shadow-[-20px_0_50px_rgba(0,0,0,0.5)]")}
       >
         <AiWorkflow trackRef={aiTrackRef} wrapperRef={aiWrapperRef} />
       </div>
