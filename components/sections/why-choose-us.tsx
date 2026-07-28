@@ -35,20 +35,40 @@ export function WhyChooseUs() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:w-140">
-        {FEATURES.map((feature, i) => (
-          <Surface
-            key={i}
-            interactive
-            className={`flex flex-col gap-3 p-6 ${
-              i % 2 === 1 ? "sm:mt-16" : ""
-            }`}
-          >
-            <feature.icon className="h-5 w-5 text-white" />
-            <h3 className="font-sans text-lg font-medium tracking-wide text-white">{feature.title}</h3>
-            <p className="font-sans text-sm leading-relaxed text-ink-secondary/80">{feature.desc}</p>
-          </Surface>
-        ))}
+      <div className="flex flex-col sm:flex-row gap-6 lg:w-140">
+        {/* Left Column */}
+        <div className="flex flex-1 flex-col gap-6">
+          {FEATURES.filter((_, i) => i % 2 === 0).map((feature, i) => (
+            <Surface
+              key={`left-${i}`}
+              interactive
+              className="flex flex-col p-8 min-h-62.5"
+            >
+              <feature.icon className="h-6 w-6 text-white" />
+              <div className="mt-auto space-y-3">
+                <h3 className="font-sans text-lg font-medium tracking-wide text-white">{feature.title}</h3>
+                <p className="font-sans text-sm leading-relaxed text-ink-secondary/80">{feature.desc}</p>
+              </div>
+            </Surface>
+          ))}
+        </div>
+
+        {/* Right Column (Staggered Down) */}
+        <div className="flex flex-1 flex-col gap-6 sm:mt-16">
+          {FEATURES.filter((_, i) => i % 2 === 1).map((feature, i) => (
+            <Surface
+              key={`right-${i}`}
+              interactive
+              className="flex flex-col p-8 min-h-62.5"
+            >
+              <feature.icon className="h-6 w-6 text-white" />
+              <div className="mt-auto space-y-3">
+                <h3 className="font-sans text-lg font-medium tracking-wide text-white">{feature.title}</h3>
+                <p className="font-sans text-sm leading-relaxed text-ink-secondary/80">{feature.desc}</p>
+              </div>
+            </Surface>
+          ))}
+        </div>
       </div>
     </section>
   );
