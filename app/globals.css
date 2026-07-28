@@ -1,26 +1,185 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/**
+ * Design tokens — extracted from Figma `Digital-Wolf-Common-UI` node 13230:33919.
+ *
+ * Every value here was read off an actual node property, not invented. Where the
+ * project brief and the Figma disagreed, the Figma won (see FIGMA-ANALYSIS.md §4);
+ * the single exception is the accent hue, which the design does not contain and
+ * which is therefore scoped to interaction states only.
+ */
+@theme {
+  /* ---------------------------------------------------------------- colour */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Surfaces. The design is a near-black greyscale ramp: a #000 page base with
+     barely-raised #080808 panels separated by 1px #242424 hairlines. */
+  --color-base: #000000;
+  --color-surface: #080808;
+  --color-surface-raised: #101010;
+  --color-surface-invert: #f5f5f3;
+  --color-nav: rgb(3 3 3 / 0.8);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-line: #242424;
+  --color-line-input: #232323;
+
+  /* Text tiers. Three near-whites, deliberately close together — the hierarchy
+     is carried by size and weight far more than by contrast. */
+  --color-ink: #e5e2e1;
+  --color-ink-secondary: #c4c7c5;
+  --color-ink-muted: #bfc1c4;
+  --color-ink-invert: #030303;
+
+  /* Accent. Absent from the design — reserved for interaction states (focus
+     rings, hover borders, cursor, scroll progress) and never used as fill. */
+  --color-accent: #ffffff;
+  --color-accent-line: rgb(255 255 255 / 0.35);
+  --color-accent-glow: rgb(255 255 255 / 0.1);
+  --color-success: #00d084;
+
+  /* Decorative glow sitting behind media, from the Figma's blurred underlay. */
+  --color-halo: rgb(191 193 196 / 0.05);
+
+  /* ------------------------------------------------------------ typography */
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cinzel), ui-serif, Georgia, serif;
+
+  /* Sizes are fluid because the file ships a 1920 desktop frame and nothing
+     else. Each clamp resolves to its exact Figma value at 1920 and degrades
+     linearly to a hand-picked floor at 375. Tracking is expressed in `em` so it
+     scales with the fluid size instead of drifting. */
+
+  /* 80/88, -1.6px @ 1920 */
+  --text-hero: clamp(2.5rem, 1.893rem + 2.589vw, 5rem);
+  --text-hero--line-height: 1.1;
+  --text-hero--letter-spacing: -0.02em;
+  --text-hero--font-weight: 500;
+
+  /* 60/57.6, +2px @ 1920 — Cinzel display */
+  --text-display: clamp(2rem, 1.575rem + 1.812vw, 3.75rem);
+  --text-display--line-height: 0.96;
+  --text-display--letter-spacing: 0.0333em;
+  --text-display--font-weight: 700;
+
+  /* 24/33.6, +1.2px */
+  --text-card: clamp(1.25rem, 1.174rem + 0.324vw, 1.5rem);
+  --text-card--line-height: 1.4;
+  --text-card--letter-spacing: 0.05em;
+  --text-card--font-weight: 600;
+
+  /* 18/32.4 */
+  --text-body-lg: clamp(1rem, 0.962rem + 0.162vw, 1.125rem);
+  --text-body-lg--line-height: 1.8;
+
+  /* 16/25.6 */
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+
+  /* 12/12, +1.2px — eyebrows, nav links, button labels */
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.1em;
+  --text-eyebrow--font-weight: 600;
+
+  /* --------------------------------------------------------------- geometry */
+
+  /* The design is square-ish: 4px on panels, 12px on the blurred media
+     underlay, 0 on buttons. Nothing here is rounded in the usual "premium SaaS"
+     sense and that restraint is load-bearing. */
+  --radius-card: 4px;
+  --radius-media: 12px;
+
+  --shadow-accent-glow: 0 0 40px var(--color-accent-glow);
+  --shadow-lift: 0 20px 60px rgb(0 0 0 / 0.5);
+
+  /* ---------------------------------------------------------------- motion */
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+
+  /* The technology marquee. Each track renders its list twice and travels 50%,
+     so the seam lands exactly where the first copy began. Declared as theme
+     animations so `animate-marquee` is a generated Tailwind utility — the
+     keyframes only ship if the utility is actually used. */
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-reverse: marquee 30s linear infinite reverse;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/**
+ * Non-utility tokens. These drive CSS and GSAP directly rather than generating
+ * Tailwind classes, so they live outside `@theme`.
+ */
+:root {
+  /* Card hover transition — the brief specifies 0.4–0.6s. */
+  --duration-card: 500ms;
+  --duration-fast: 200ms;
+}
+
+@layer base {
+  html {
+    /* Lenis drives scrolling; native smooth would fight it. Next 16 no longer
+       overrides scroll-behavior during navigation, so this stays authoritative. */
+    scroll-behavior: auto;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-ink-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings inherit their scale from the component that renders them; the
+     browser defaults would otherwise fight the token system. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-ink-invert);
+  }
+
+  /* Visible, high-contrast focus for keyboard users only — one of the few
+     places the accent is allowed to appear. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Reduced motion is a hard kill-switch, not a suggestion. GSAP timelines
+     check the same signal via `usePrefersReducedMotion`. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
