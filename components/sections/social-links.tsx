@@ -30,14 +30,14 @@ const SOCIALS = [
 export function SocialLinks() {
   return (
     <section data-no-global-reveal className="mx-auto w-full container px-5 py-24 sm:px-8 lg:px-12">
-      {/* 
-        We add pl-6 so the absolutely positioned left circles don't 
+      {/*
+        We add pl-6 so the absolutely positioned left circles don't
         clip outside the screen on mobile devices.
       */}
       <div className="flex flex-col flex-wrap items-center justify-center gap-y-12 gap-x-8 lg:flex-row xl:gap-x-12 pl-6 sm:pl-0">
         {SOCIALS.map((social) => (
-          <Link 
-            key={social.platform} 
+          <Link
+            key={social.platform}
             href={social.href}
             className="group relative flex w-full max-w-95 items-center justify-between rounded-[3rem] border border-white/5 bg-[#050505] py-5 pr-5 pl-16 transition-all duration-500 hover:border-white/10 hover:bg-white/2"
           >

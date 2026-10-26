@@ -1,15 +1,16 @@
 import { Hero } from "@/components/sections/hero";
 import { Partners } from "@/components/sections/partners";
-import { About } from "@/components/sections/about";
+import { AboutNew } from "@/components/sections/about-new";
 import { Stats } from "@/components/sections/stats";
 import { ServiceRail } from "@/components/sections/service-rail";
 import { TechMarquee } from "@/components/sections/tech-marquee";
+import { CaseStudiesMarquee } from "@/components/sections/case-studies-marquee";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { ClientMarquee } from "@/components/sections/client-marquee";
 import { CaseStudies } from "@/components/sections/case-studies";
 import { AgencyProcess } from "@/components/sections/agency-process";
 import { Martech } from "@/components/sections/martech";
-import GrowthShowcase from "@/components/sections/GrowthShowcase";
+// import GrowthShowcase from "@/components/sections/GrowthShowcase";
 import { SocialLinks } from "@/components/sections/social-links";
 import { Contact } from "@/components/sections/contact";
 
@@ -20,17 +21,19 @@ export default function Home() {
     <main className="overflow-x-clip">
       <GlobalScrollReveal>
         <Hero />
-        <Partners />
-        <About />
+        <AboutNew />
         <Stats />
         <ServiceRail />
         <TechMarquee />
+        <CaseStudiesMarquee />
         <WhyChooseUs />
         <ClientMarquee />
-        <CaseStudies />
+        {/* Original Case Studies preserved below */}
+        {/* <CaseStudies /> */}
         <AgencyProcess />
         <Martech />
-        <GrowthShowcase />
+        {/* WinWinGrowth and AiWorkflow preserved as components */}
+        {/* <GrowthShowcase /> */}
         <SocialLinks />
         <Contact />
       </GlobalScrollReveal>
