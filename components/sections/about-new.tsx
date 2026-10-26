@@ -26,16 +26,16 @@ export function AboutNew({
       />
 
       {/* Full width container spanning edge to edge */}
-      <div className="relative flex w-full flex-col items-center justify-center lg:min-h-[640px] xl:min-h-[700px] 2xl:min-h-[760px]">
+      <div className="relative flex w-full flex-col items-center justify-center lg:min-h-[580px] xl:min-h-[640px] 2xl:min-h-[680px]">
         {/* Top-Left Image: Plain on outer left side, rounded on inner right side */}
-        <div className="w-[88%] max-w-[380px] self-start mb-8 sm:w-[360px] lg:mb-0 lg:w-[360px] xl:w-[420px] 2xl:w-[480px] lg:absolute lg:left-0 lg:top-4 xl:top-6">
-          <div className="group relative h-[250px] sm:h-[280px] lg:h-[290px] xl:h-[340px] 2xl:h-[390px] w-full overflow-hidden rounded-l-none rounded-r-[28px] sm:rounded-r-[36px] lg:rounded-r-[44px] border-y border-r border-white/10 bg-surface shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-500 hover:border-white/30">
+        <div className="w-[88%] max-w-[380px] self-start mb-8 sm:w-[340px] lg:mb-0 lg:w-[320px] xl:w-[400px] 2xl:w-[460px] lg:absolute lg:left-0 lg:top-2 xl:top-4">
+          <div className="group relative overflow-hidden rounded-l-none rounded-r-[28px] sm:rounded-r-[36px] lg:rounded-r-[44px] border-y border-r border-white/10 bg-surface shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-500 hover:border-white/30">
             <Image
               src={topImageSrc}
               alt="Digital Marketing Workspace & Analytics"
-              fill
-              sizes="(max-width: 1024px) 88vw, (max-width: 1536px) 440px, 500px"
-              className="object-cover w-full h-full grayscale contrast-[1.08] brightness-[0.98] transition-transform duration-700 ease-out group-hover:scale-105"
+              width={680}
+              height={510}
+              className="aspect-[4/3] w-full object-cover grayscale contrast-[1.08] brightness-[0.98] transition-transform duration-700 ease-out group-hover:scale-105"
               priority
             />
             <div className="pointer-events-none absolute inset-0 rounded-l-none rounded-r-[inherit] ring-1 ring-inset ring-white/10" />
@@ -43,9 +43,9 @@ export function AboutNew({
         </div>
 
         {/* Center Content: Headline, Divider, Body, CTA */}
-        <div className="z-10 flex w-full max-w-sm sm:max-w-md lg:max-w-md xl:max-w-lg flex-col items-center px-4 text-center">
+        <div className="z-10 flex w-full max-w-xl flex-col items-center px-6 text-center lg:max-w-2xl xl:max-w-3xl">
           {/* Main Display Headline */}
-          <h2 className="font-display text-3xl font-bold uppercase tracking-[0.03em] text-white sm:text-4xl lg:text-[38px] xl:text-[44px] 2xl:text-[50px] leading-[1.14]">
+          <h2 className="font-display text-3xl font-bold uppercase tracking-[0.03em] text-white sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[52px] 2xl:text-[58px] leading-[1.12]">
             Powering The Next
             <br />
             Phase Of Digital
@@ -65,7 +65,7 @@ export function AboutNew({
           {/* Descriptive Body Paragraph using standard site text-ink-secondary */}
           <Body
             size="lg"
-            className="text-ink-secondary max-w-sm sm:max-w-md lg:max-w-md text-center leading-relaxed text-sm sm:text-base"
+            className="text-ink-secondary max-w-md sm:max-w-lg md:max-w-xl text-center leading-relaxed"
           >
             Digital Wolf Unites Strategy, Technology, Creativity And AI To Build
             Experiences That Strengthen Brands, Engage Audiences And Drive
@@ -85,14 +85,14 @@ export function AboutNew({
         </div>
 
         {/* Bottom-Right Image: Plain on outer right side, rounded on inner left side */}
-        <div className="w-[88%] max-w-[380px] self-end mt-8 sm:w-[360px] lg:mt-0 lg:w-[360px] xl:w-[420px] 2xl:w-[480px] lg:absolute lg:right-0 lg:bottom-4 xl:bottom-6">
-          <div className="group relative h-[250px] sm:h-[280px] lg:h-[290px] xl:h-[340px] 2xl:h-[390px] w-full overflow-hidden rounded-r-none rounded-l-[28px] sm:rounded-l-[36px] lg:rounded-l-[44px] border-y border-l border-white/10 bg-surface shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-500 hover:border-white/30">
+        <div className="w-[88%] max-w-[380px] self-end mt-8 sm:w-[340px] lg:mt-0 lg:w-[320px] xl:w-[400px] 2xl:w-[460px] lg:absolute lg:right-0 lg:bottom-2 xl:bottom-4">
+          <div className="group relative overflow-hidden rounded-r-none rounded-l-[28px] sm:rounded-l-[36px] lg:rounded-l-[44px] border-y border-l border-white/10 bg-surface shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-500 hover:border-white/30">
             <Image
               src={bottomImageSrc}
               alt="Digital Growth Planning and Execution"
-              fill
-              sizes="(max-width: 1024px) 88vw, (max-width: 1536px) 440px, 500px"
-              className="object-cover w-full h-full grayscale contrast-[1.08] brightness-[0.98] transition-transform duration-700 ease-out group-hover:scale-105"
+              width={680}
+              height={510}
+              className="aspect-[4/3] w-full object-cover grayscale contrast-[1.08] brightness-[0.98] transition-transform duration-700 ease-out group-hover:scale-105"
             />
             <div className="pointer-events-none absolute inset-0 rounded-r-none rounded-l-[inherit] ring-1 ring-inset ring-white/10" />
           </div>
