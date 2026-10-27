@@ -67,7 +67,7 @@ export function AboutNew({
       ref={sectionRef}
       id={id}
       data-no-global-reveal
-      className="relative w-full overflow-hidden py-16 sm:py-20 lg:py-24 xl:py-28"
+      className="relative w-full overflow-hidden py-[60px]"
     >
       {/* Background subtle radial glow */}
       <div
@@ -76,9 +76,9 @@ export function AboutNew({
       />
 
       {/* Full width container spanning edge to edge */}
-      <div className="relative flex w-full flex-col items-center justify-center lg:min-h-[740px] xl:min-h-[820px] 2xl:min-h-[900px]">
+      <div className="relative flex w-full flex-col items-center justify-center lg:min-h-[500px] xl:min-h-[540px] 2xl:min-h-[580px]">
         {/* Top-Left Image: Plain on outer left side, rounded on inner right side */}
-        <div className="about-img-left w-[92%] max-w-[460px] self-start mb-8 sm:w-[420px] md:w-[460px] lg:mb-0 lg:w-[480px] xl:w-[580px] 2xl:w-[680px] lg:absolute lg:left-0 lg:top-6 xl:top-8 2xl:top-10">
+        <div className="about-img-left w-[92%] max-w-[460px] self-start mb-8 sm:w-[420px] md:w-[460px] lg:mb-0 lg:w-[480px] xl:w-[580px] 2xl:w-[680px] lg:absolute lg:left-0 lg:top-0">
           <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-l-none rounded-r-[12px] border-y border-r border-white/10 bg-neutral-900 shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-all duration-500 hover:border-white/30">
             <Image
               src={topImageSrc}
@@ -136,7 +136,7 @@ export function AboutNew({
         </div>
 
         {/* Bottom-Right Image: Plain on outer right side, rounded on inner left side */}
-        <div className="about-img-right w-[92%] max-w-[460px] self-end mt-8 sm:w-[420px] md:w-[460px] lg:mt-0 lg:w-[480px] xl:w-[580px] 2xl:w-[680px] lg:absolute lg:right-0 lg:bottom-6 xl:bottom-8 2xl:bottom-10">
+        <div className="about-img-right w-[92%] max-w-[460px] self-end mt-8 sm:w-[420px] md:w-[460px] lg:mt-0 lg:w-[480px] xl:w-[580px] 2xl:w-[680px] lg:absolute lg:right-0 lg:bottom-0">
           <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-r-none rounded-l-[12px] border-y border-l border-white/10 bg-neutral-900 shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-all duration-500 hover:border-white/30">
             <Image
               src={bottomImageSrc}

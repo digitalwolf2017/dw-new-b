@@ -70,6 +70,22 @@ export function AgencyProcess() {
           />
         </div>
 
+        <div className="flex w-full lg:justify-end">
+          <ProcessStep 
+            number="05" 
+            title="Optimization" 
+            desc="Continuous algorithmic calibration and conversion rate intelligence to maximize client lifetime value and lower acquisition costs." 
+          />
+        </div>
+
+        <div className="flex w-full lg:justify-start">
+          <ProcessStep 
+            number="06" 
+            title="Evolution" 
+            desc="Ongoing architectural updates and AI capability upgrades, ensuring your systems continuously evolve and outpace industry standards." 
+          />
+        </div>
+
       </div>
     </section>
   );

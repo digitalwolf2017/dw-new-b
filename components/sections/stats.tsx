@@ -73,31 +73,38 @@ function AnimatedCounter({ value }: { value: string }) {
   );
 }
 
-export function Stats() {
+export function Stats({ id = "stats" }: { id?: string }) {
   return (
-    <section className="relative mx-auto w-full max-w-5xl px-5 py-24 sm:px-8 lg:px-12">
-      {/* Top Gradient Border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
-      {/* Bottom Gradient Border */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
-      
-      <div className="flex flex-wrap items-center justify-center gap-16 md:justify-between md:gap-8">
-        {STATS.map((stat, i) => {
-          const Icon = stat.icon;
-          return (
-            <div key={i} className="flex flex-col items-center gap-4 text-center">
-              <Icon className="h-6 w-6 text-white" strokeWidth={1.5} />
-              <div className="flex flex-col gap-2">
-                <Heading as="h3" className="font-display text-4xl text-white sm:text-5xl font-bold">
-                  <AnimatedCounter value={stat.value} />
-                </Heading>
-                <span className="text-[10px] font-bold tracking-widest text-ink-muted uppercase">
-                  {stat.label}
-                </span>
+    <section
+      id={id}
+      className="relative w-full overflow-hidden bg-base py-4 sm:py-6 px-[16px]"
+    >
+      {/* Floating Rounded Card matching site black bg card style */}
+      <div className="relative mx-auto w-full overflow-hidden rounded-[12px] border border-white/10 bg-black px-6 py-12 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+        {/* Subtle ambient radial glow */}
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.025)_0%,transparent_70%)]"
+          aria-hidden="true"
+        />
+
+        <div className="relative z-10 mx-auto grid w-full max-w-5xl grid-cols-2 gap-8 sm:gap-10 md:grid-cols-4 md:gap-8">
+          {STATS.map((stat, i) => {
+            const Icon = stat.icon;
+            return (
+              <div key={i} className="flex flex-col items-center gap-3.5 sm:gap-4 text-center">
+                <Icon className="h-6 w-6 text-white" strokeWidth={1.5} />
+                <div className="flex flex-col gap-1.5 sm:gap-2">
+                  <Heading as="h3" className="font-display text-4xl text-white sm:text-5xl font-bold">
+                    <AnimatedCounter value={stat.value} />
+                  </Heading>
+                  <span className="text-[10px] sm:text-xs font-bold tracking-widest text-ink-muted uppercase">
+                    {stat.label}
+                  </span>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );

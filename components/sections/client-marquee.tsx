@@ -51,10 +51,10 @@ export function ClientMarquee() {
 
           {/* Row 1 - Left to Right */}
           <div className="relative flex w-full overflow-hidden">
-            <div className="flex animate-marquee gap-16 whitespace-nowrap will-change-transform">
+            <div className="flex animate-marquee gap-10 sm:gap-14 whitespace-nowrap will-change-transform">
               {[...CLIENTS, ...CLIENTS].map((client, i) => (
-                <div key={`row1-${i}`} className="flex shrink-0 items-center justify-center px-4">
-                  <span className="text-4xl md:text-5xl lg:text-[4rem] font-display font-bold uppercase tracking-wider text-transparent" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.15)' }}>
+                <div key={`row1-${i}`} className="flex shrink-0 items-center justify-center px-3 sm:px-4">
+                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-display font-bold uppercase tracking-wider text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)' }}>
                     {client}
                   </span>
                 </div>
@@ -64,10 +64,10 @@ export function ClientMarquee() {
 
           {/* Row 2 - Right to Left */}
           <div className="relative flex w-full overflow-hidden">
-            <div className="flex animate-marquee-reverse gap-16 whitespace-nowrap will-change-transform">
+            <div className="flex animate-marquee-reverse gap-10 sm:gap-14 whitespace-nowrap will-change-transform">
               {[...CLIENTS_2, ...CLIENTS_2].map((client, i) => (
-                <div key={`row2-${i}`} className="flex shrink-0 items-center justify-center px-4">
-                  <span className="text-4xl md:text-5xl lg:text-[4rem] font-display font-bold uppercase tracking-wider text-white/40 transition-colors duration-500 hover:text-white">
+                <div key={`row2-${i}`} className="flex shrink-0 items-center justify-center px-3 sm:px-4">
+                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-display font-bold uppercase tracking-wider text-white/40 transition-colors duration-500 hover:text-white">
                     {client}
                   </span>
                 </div>

@@ -195,7 +195,7 @@ export function ServiceRail() {
       <section
         id="services"
         data-no-global-reveal
-        className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden pt-20 sm:pt-24 pb-4 sm:pb-6 px-[16px]"
+        className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden py-4 sm:py-6 px-[16px]"
       >
         {/* Black background card with rounded corners and side gaps */}
         <div className="relative flex h-full max-h-[92vh] w-full flex-col justify-between overflow-hidden rounded-[12px] border border-white/10 bg-black py-6 sm:py-8 md:py-10">

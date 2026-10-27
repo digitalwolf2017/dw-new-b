@@ -22,9 +22,9 @@ export default function Home() {
       <GlobalScrollReveal>
         <Hero />
         <AboutNew />
-        <Stats />
         <ServiceRail />
         <TechMarquee />
+        <Stats />
         <WhyChooseUs />
         <CaseStudiesMarquee />
 
