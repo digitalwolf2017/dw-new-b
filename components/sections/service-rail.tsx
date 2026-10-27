@@ -136,6 +136,15 @@ export function ServiceRail() {
       return Math.max(0, cardTrackWidth - visibleWidth + 80);
     };
 
+    // Stagger offsets for up and down cards
+    const upCards = scrollContainer.querySelectorAll(".service-card-up");
+    const downCards = scrollContainer.querySelectorAll(".service-card-down");
+    const getYOffset = () => (window.innerWidth < 768 ? 14 : window.innerWidth < 1024 ? 18 : 22);
+
+    // Set initial positions
+    gsap.set(upCards, { y: -getYOffset() });
+    gsap.set(downCards, { y: getYOffset() });
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container,
@@ -146,16 +155,31 @@ export function ServiceRail() {
       }
     });
 
-    // 1. The horizontal scroll translation
+    // 1. The horizontal scroll translation across the entire timeline
     tl.to(scrollContainer, {
       x: () => -getScrollAmount(),
       ease: "none",
       duration: 1,
-    })
-      // 2. Brief pause at end
-      .to({}, {
-        duration: 0.25,
-      });
+    }, 0);
+
+    // 2. Alignment animation: as sliding starts, the up/down cards smoothly converge into the same horizontal line
+    tl.fromTo(
+      upCards,
+      { y: () => -getYOffset() },
+      { y: 0, ease: "power2.out", duration: 0.2 },
+      0
+    );
+    tl.fromTo(
+      downCards,
+      { y: () => getYOffset() },
+      { y: 0, ease: "power2.out", duration: 0.2 },
+      0
+    );
+
+    // 3. Brief pause at end
+    tl.to({}, {
+      duration: 0.25,
+    });
 
     // Ensure ScrollTrigger accurately measures current page layout
     ScrollTrigger.refresh();
@@ -174,7 +198,7 @@ export function ServiceRail() {
         className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden pt-20 sm:pt-24 pb-4 sm:pb-6 px-[16px]"
       >
         {/* Black background card with rounded corners and side gaps */}
-        <div className="relative flex h-full max-h-[92vh] w-full flex-col justify-between overflow-hidden rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] xl:rounded-[48px] border border-white/10 bg-black py-6 sm:py-8 md:py-10 shadow-lg shadow-black/40">
+        <div className="relative flex h-full max-h-[92vh] w-full flex-col justify-between overflow-hidden rounded-[12px] border border-white/10 bg-black py-6 sm:py-8 md:py-10">
           
           {/* Header row: exact same SectionHeader and Tabs */}
           <div className="shrink-0 mx-auto mb-4 md:mb-8 flex w-full container flex-col gap-6 px-5 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
@@ -222,13 +246,17 @@ export function ServiceRail() {
               >
                 {currentServices.map((service, i) => {
                   const Icon = service.icon;
+                  const isOdd = i % 2 === 1;
                   return (
-                    <div key={service.index} className="shrink-0">
+                    <div
+                      key={service.index}
+                      className={`shrink-0 ${
+                        isOdd ? "service-card-down" : "service-card-up"
+                      }`}
+                    >
                       <Surface
                         interactive
-                        className={`relative flex h-[370px] md:h-[430px] lg:h-[470px] w-72 md:w-80 lg:w-90 shrink-0 flex-col overflow-hidden rounded-2xl border border-line ${
-                          i % 2 === 1 ? "mt-6 lg:mt-10" : ""
-                        }`}
+                        className="relative flex h-[370px] md:h-[430px] lg:h-[470px] w-72 md:w-80 lg:w-90 shrink-0 flex-col overflow-hidden rounded-2xl border border-line"
                       >
                         <GreyscaleImage
                           src={service.image}

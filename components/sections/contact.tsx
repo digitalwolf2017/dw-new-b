@@ -9,7 +9,7 @@ export function Contact() {
     >
       <div className="mx-auto w-full max-w-[1400px]">
         {/* The Card Container matching the reference image */}
-        <div className="flex flex-col overflow-hidden border border-white/[0.08] bg-[#0c0c0e] lg:flex-row shadow-2xl shadow-black/50">
+        <div className="flex flex-col overflow-hidden rounded-[12px] border border-white/[0.08] bg-[#0c0c0e] lg:flex-row shadow-2xl shadow-black/50">
           
           {/* Left Side: Form */}
           <div className="relative flex w-full flex-col p-8 sm:p-12 lg:w-1/2 lg:p-16 border-b lg:border-b-0 lg:border-r border-white/[0.08]">

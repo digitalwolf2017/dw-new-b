@@ -25,8 +25,9 @@ export default function Home() {
         <Stats />
         <ServiceRail />
         <TechMarquee />
-        <CaseStudiesMarquee />
         <WhyChooseUs />
+        <CaseStudiesMarquee />
+
         <ClientMarquee />
         {/* Original Case Studies preserved below */}
         {/* <CaseStudies /> */}

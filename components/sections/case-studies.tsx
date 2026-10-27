@@ -98,10 +98,10 @@ export function CaseStudies() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 md:py-32 bg-base relative overflow-hidden"
+      className=" bg-base relative overflow-hidden"
       data-no-global-reveal
     >
-      <div className="container mx-auto px-5 sm:px-8 lg:px-12 flex flex-col lg:flex-row gap-6 lg:gap-8">
+      <div className="container mx-auto px-5 sm:px-8 lg:px-12 flex flex-col lg:flex-row gap-2 lg:gap-4">
 
         {/* Column 1: Title Block (Sticky) + Bottom Card */}
         <div className="w-full lg:w-4/12 flex flex-col justify-between z-10 relative h-auto">

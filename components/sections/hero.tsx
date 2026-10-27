@@ -50,7 +50,7 @@ export function Hero() {
       <section
         id="hero"
         data-no-global-reveal
-        className="relative flex min-h-[calc(100vh-7.5rem)] w-full flex-col items-center justify-between overflow-hidden rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] xl:rounded-[48px] border border-white/10 bg-black pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 shadow-lg shadow-black/40"
+        className="relative flex min-h-[calc(100vh-7.5rem)] w-full flex-col items-center justify-between overflow-hidden rounded-[12px] border border-white/10 bg-black pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10"
       >
         <HeroMesh />
 

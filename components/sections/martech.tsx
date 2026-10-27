@@ -75,7 +75,7 @@ export function Martech() {
       className="relative w-full overflow-hidden bg-base py-4 sm:py-6 px-[16px]"
     >
       {/* Floating Rounded Card matching reference image */}
-      <div className="relative flex min-h-[500px] sm:min-h-[580px] lg:min-h-[640px] w-full items-center justify-center overflow-hidden rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] xl:rounded-[48px] border border-white/10 bg-black px-4 py-28 sm:py-36 lg:py-44 shadow-lg shadow-black/40">
+      <div className="relative flex min-h-[500px] sm:min-h-[580px] lg:min-h-[640px] w-full items-center justify-center overflow-hidden rounded-[12px] border border-white/10 bg-black px-4 py-28 sm:py-36 lg:py-44">
           <div className="flex w-full justify-center items-center gap-1 sm:gap-2">
             {MARTECH_DATA.map((item, i) => (
               <div key={i} className="relative inline-flex">

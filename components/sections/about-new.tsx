@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Body } from "@/components/ui/body";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 interface AboutNewProps {
   id?: string;
@@ -22,38 +22,42 @@ export function AboutNew({
 
   useGSAP(
     () => {
+      const section = sectionRef.current;
+      if (!section) return;
+
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          trigger: section,
+          start: "top 85%",
+          end: "center 45%",
+          scrub: 1.2,
+          invalidateOnRefresh: true,
         },
       });
 
-      // Left image card slides smoothly from left
-      tl.from(".about-img-left", {
-        x: -50,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-      }, 0);
+      // Left image card slides in from the left side smoothly and directly with scroll
+      tl.fromTo(
+        ".about-img-left",
+        { xPercent: -70, opacity: 0.2 },
+        { xPercent: 0, opacity: 1, ease: "none", duration: 1 },
+        0
+      );
 
-      // Right image card slides smoothly from right
-      tl.from(".about-img-right", {
-        x: 50,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-      }, 0);
+      // Right image card slides in from the right side smoothly and directly with scroll
+      tl.fromTo(
+        ".about-img-right",
+        { xPercent: 70, opacity: 0.2 },
+        { xPercent: 0, opacity: 1, ease: "none", duration: 1 },
+        0
+      );
 
-      // Center content elements fade and slide up sequentially
-      tl.from(".about-anim-item", {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-      }, 0.1);
+      // Center content elements fade and slide up in sync with scroll
+      tl.fromTo(
+        ".about-anim-item",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.04, ease: "none", duration: 0.9 },
+        0.05
+      );
     },
     { scope: sectionRef }
   );
@@ -72,15 +76,15 @@ export function AboutNew({
       />
 
       {/* Full width container spanning edge to edge */}
-      <div className="relative flex w-full flex-col items-center justify-center lg:min-h-[660px] xl:min-h-[720px] 2xl:min-h-[780px]">
+      <div className="relative flex w-full flex-col items-center justify-center lg:min-h-[740px] xl:min-h-[820px] 2xl:min-h-[900px]">
         {/* Top-Left Image: Plain on outer left side, rounded on inner right side */}
-        <div className="about-img-left w-[88%] max-w-[420px] self-start mb-8 sm:w-[380px] md:w-[420px] lg:mb-0 lg:w-[420px] xl:w-[500px] 2xl:w-[560px] lg:absolute lg:left-0 lg:top-10 xl:top-12 2xl:top-16">
-          <div className="group relative aspect-[16/11] w-full overflow-hidden rounded-l-none rounded-r-[28px] sm:rounded-r-[36px] lg:rounded-r-[44px] border-y border-r border-white/10 bg-neutral-900 shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-all duration-500 hover:border-white/30">
+        <div className="about-img-left w-[92%] max-w-[460px] self-start mb-8 sm:w-[420px] md:w-[460px] lg:mb-0 lg:w-[480px] xl:w-[580px] 2xl:w-[680px] lg:absolute lg:left-0 lg:top-6 xl:top-8 2xl:top-10">
+          <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-l-none rounded-r-[12px] border-y border-r border-white/10 bg-neutral-900 shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-all duration-500 hover:border-white/30">
             <Image
               src={topImageSrc}
               alt="Digital Marketing Workspace & Analytics"
               fill
-              sizes="(max-width: 640px) 88vw, (max-width: 1024px) 420px, (max-width: 1440px) 500px, 560px"
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 460px, (max-width: 1440px) 580px, 680px"
               className="object-cover w-full h-full grayscale contrast-[1.08] brightness-[0.98] transition-transform duration-700 ease-out group-hover:scale-105"
               priority
             />
@@ -132,13 +136,13 @@ export function AboutNew({
         </div>
 
         {/* Bottom-Right Image: Plain on outer right side, rounded on inner left side */}
-        <div className="about-img-right w-[88%] max-w-[420px] self-end mt-8 sm:w-[380px] md:w-[420px] lg:mt-0 lg:w-[420px] xl:w-[500px] 2xl:w-[560px] lg:absolute lg:right-0 lg:bottom-10 xl:bottom-12 2xl:bottom-16">
-          <div className="group relative aspect-[16/11] w-full overflow-hidden rounded-r-none rounded-l-[28px] sm:rounded-l-[36px] lg:rounded-l-[44px] border-y border-l border-white/10 bg-neutral-900 shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-all duration-500 hover:border-white/30">
+        <div className="about-img-right w-[92%] max-w-[460px] self-end mt-8 sm:w-[420px] md:w-[460px] lg:mt-0 lg:w-[480px] xl:w-[580px] 2xl:w-[680px] lg:absolute lg:right-0 lg:bottom-6 xl:bottom-8 2xl:bottom-10">
+          <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-r-none rounded-l-[12px] border-y border-l border-white/10 bg-neutral-900 shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-all duration-500 hover:border-white/30">
             <Image
               src={bottomImageSrc}
               alt="Digital Growth Planning and Execution"
               fill
-              sizes="(max-width: 640px) 88vw, (max-width: 1024px) 420px, (max-width: 1440px) 500px, 560px"
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 460px, (max-width: 1440px) 580px, 680px"
               className="object-cover w-full h-full grayscale contrast-[1.08] brightness-[0.98] transition-transform duration-700 ease-out group-hover:scale-105"
             />
           </div>

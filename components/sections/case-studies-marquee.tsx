@@ -76,14 +76,14 @@ function VerticalMarqueeColumn({
         {loopedItems.map((item, index) => (
           <div
             key={index}
-            className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-lg sm:rounded-xl border border-white/10 bg-surface shadow-sm"
+            className="group/img relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-lg sm:rounded-xl border border-white/10 bg-surface shadow-sm"
           >
             <Image
               src={item.src}
               alt={item.alt}
               fill
               sizes="(max-width: 640px) 30vw, (max-width: 1024px) 20vw, 170px"
-              className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+              className="object-cover grayscale transition-all duration-500 ease-out cursor-pointer hover:scale-105 hover:grayscale-0 group-hover/img:scale-105 group-hover/img:grayscale-0"
             />
           </div>
         ))}
@@ -100,7 +100,7 @@ export function CaseStudiesMarquee() {
       className="relative w-full overflow-hidden bg-base py-4 sm:py-6 px-[16px]"
     >
       {/* The Rounded Container Card: exact black bg and side margins matching Hero and Service Rail */}
-      <div className="relative w-full overflow-hidden rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] xl:rounded-[48px] border border-white/10 bg-black px-6 py-9 sm:px-10 sm:py-12 lg:px-14 lg:py-14 xl:px-18 xl:py-16 shadow-lg shadow-black/40">
+      <div className="relative w-full overflow-hidden rounded-[12px] border border-white/10 bg-black px-6 py-9 sm:px-10 sm:py-12 lg:px-14 lg:py-14 xl:px-18 xl:py-16">
           
           {/* Subtle ambient glow */}
           <div
