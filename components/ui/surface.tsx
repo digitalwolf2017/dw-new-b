@@ -21,7 +21,7 @@ export function Surface({
   return (
     <div
       className={cn(
-        "bg-surface border-line rounded-card border",
+        "bg-surface border-line rounded-none border",
         interactive && [
           "transition-[border-color,box-shadow,transform,background-color]",
           "duration-[var(--duration-card)] ease-(--ease-out-quart)",

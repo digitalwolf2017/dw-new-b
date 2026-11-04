@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Body } from "@/components/ui/body";
-import { DisplayTitle } from "@/components/ui/display-title";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { FacebookIcon, LinkedinIcon, InstagramIcon } from "@/components/ui/icons";
 import gsap from "gsap";
@@ -230,13 +230,15 @@ export function Footer() {
           <Eyebrow className="text-white/60 mb-5 tracking-[0.25em] text-xs font-semibold">
             LET&rsquo;S CONNECT
           </Eyebrow>
-          <DisplayTitle className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-wider text-white leading-tight">
-            LET&rsquo;S BUILD SOMETHING<br />AMAZING TOGETHER
-          </DisplayTitle>
+          <ScrollRevealH2
+            as="h2"
+            lines={["LET'S BUILD SOMETHING", "AMAZING TOGETHER"]}
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-wider text-white leading-tight text-center"
+          />
           
           <div className="h-[2px] w-24 bg-white/20 my-5 sm:my-6" />
           
-          <Body style={{ color: "#c4c7c5" }} className="text-sm sm:text-base leading-relaxed text-ink-secondary max-w-xl">
+          <Body style={{ color: "#c4c7c5" }} className="text-[16px] sm:text-[18px] leading-relaxed text-ink-secondary max-w-xl">
             Partner with Digital Wolf to transform your digital presence into a high-performance engine for growth and innovation.
           </Body>
         </div>
@@ -256,7 +258,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black shadow-sm transition-all duration-300 hover:scale-105 hover:bg-neutral-200"
+              className="flex h-10 w-10 items-center justify-center rounded-none bg-white text-black shadow-sm transition-all duration-300 hover:scale-105 hover:bg-neutral-200"
             >
               <FacebookIcon className="h-4 w-4 fill-black text-black" />
             </a>
@@ -265,7 +267,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black shadow-sm transition-all duration-300 hover:scale-105 hover:bg-neutral-200"
+              className="flex h-10 w-10 items-center justify-center rounded-none bg-white text-black shadow-sm transition-all duration-300 hover:scale-105 hover:bg-neutral-200"
             >
               <LinkedinIcon className="h-4 w-4 fill-black text-black" />
             </a>
@@ -274,7 +276,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black shadow-sm transition-all duration-300 hover:scale-105 hover:bg-neutral-200"
+              className="flex h-10 w-10 items-center justify-center rounded-none bg-white text-black shadow-sm transition-all duration-300 hover:scale-105 hover:bg-neutral-200"
             >
               <InstagramIcon className="h-4 w-4 fill-black text-black" />
             </a>

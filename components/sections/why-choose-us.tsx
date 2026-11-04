@@ -2,10 +2,11 @@
 
 import { useRef } from "react";
 import { Body } from "@/components/ui/body";
-import { DisplayTitle, TitleAccent } from "@/components/ui/display-title";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { SolidButton } from "@/components/ui/solid-button";
 import { Surface } from "@/components/ui/surface";
+import { BorderGlow } from "@/components/ui/border-glow";
 import { TrendingUp, Sparkles, Layers, Bot } from "lucide-react";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
@@ -66,9 +67,13 @@ export function WhyChooseUs({ id = "why-choose-us" }: { id?: string }) {
       <div className="why-text-col flex max-w-120 flex-col gap-8 lg:sticky lg:top-32 lg:h-fit">
         <div className="flex flex-col gap-6">
           <Eyebrow>OUR SERVICES</Eyebrow>
-          <DisplayTitle className="text-4xl sm:text-5xl leading-tight">
-            WHY<br />CHOOSE US<TitleAccent>?</TitleAccent>
-          </DisplayTitle>
+          <ScrollRevealH2
+            as="h2"
+            lines={["WHY", "CHOOSE US?"]}
+            highlightWords={["?"]}
+            highlightClass="text-ink-muted"
+            className="text-display font-display font-bold text-ink text-4xl sm:text-5xl leading-tight uppercase"
+          />
           <div className="h-px w-20 bg-white/30" />
           <Body size="lg" className="text-ink-secondary">
             Our capabilities span the full digital spectrum, from creative direction
@@ -90,12 +95,13 @@ export function WhyChooseUs({ id = "why-choose-us" }: { id?: string }) {
           <div className="why-card-1">
             <Surface
               interactive
-              className="flex flex-col p-8 min-h-62.5 rounded-[12px]"
+              className="group relative flex flex-col p-8 min-h-62.5 rounded-none overflow-visible"
             >
+              <BorderGlow />
               <TrendingUp className="h-6 w-6 text-white" />
               <div className="mt-auto space-y-3">
                 <h3 className="font-sans text-lg font-medium tracking-wide text-white">{FEATURES[0].title}</h3>
-                <p className="font-sans text-sm leading-relaxed text-ink-secondary/80">{FEATURES[0].desc}</p>
+                <p className="font-sans text-[16px] leading-relaxed text-ink-secondary/80">{FEATURES[0].desc}</p>
               </div>
             </Surface>
           </div>
@@ -104,12 +110,13 @@ export function WhyChooseUs({ id = "why-choose-us" }: { id?: string }) {
           <div className="why-card-3">
             <Surface
               interactive
-              className="flex flex-col p-8 min-h-62.5 rounded-[12px]"
+              className="group relative flex flex-col p-8 min-h-62.5 rounded-none overflow-visible"
             >
+              <BorderGlow />
               <Layers className="h-6 w-6 text-white" />
               <div className="mt-auto space-y-3">
                 <h3 className="font-sans text-lg font-medium tracking-wide text-white">{FEATURES[2].title}</h3>
-                <p className="font-sans text-sm leading-relaxed text-ink-secondary/80">{FEATURES[2].desc}</p>
+                <p className="font-sans text-[16px] leading-relaxed text-ink-secondary/80">{FEATURES[2].desc}</p>
               </div>
             </Surface>
           </div>
@@ -121,12 +128,13 @@ export function WhyChooseUs({ id = "why-choose-us" }: { id?: string }) {
           <div className="why-card-2">
             <Surface
               interactive
-              className="flex flex-col p-8 min-h-62.5 rounded-[12px]"
+              className="group relative flex flex-col p-8 min-h-62.5 rounded-none overflow-visible"
             >
+              <BorderGlow />
               <Sparkles className="h-6 w-6 text-white" />
               <div className="mt-auto space-y-3">
                 <h3 className="font-sans text-lg font-medium tracking-wide text-white">{FEATURES[1].title}</h3>
-                <p className="font-sans text-sm leading-relaxed text-ink-secondary/80">{FEATURES[1].desc}</p>
+                <p className="font-sans text-[16px] leading-relaxed text-ink-secondary/80">{FEATURES[1].desc}</p>
               </div>
             </Surface>
           </div>
@@ -135,12 +143,13 @@ export function WhyChooseUs({ id = "why-choose-us" }: { id?: string }) {
           <div className="why-card-4">
             <Surface
               interactive
-              className="flex flex-col p-8 min-h-62.5 rounded-[12px]"
+              className="group relative flex flex-col p-8 min-h-62.5 rounded-none overflow-visible"
             >
+              <BorderGlow />
               <Bot className="h-6 w-6 text-white" />
               <div className="mt-auto space-y-3">
                 <h3 className="font-sans text-lg font-medium tracking-wide text-white">{FEATURES[3].title}</h3>
-                <p className="font-sans text-sm leading-relaxed text-ink-secondary/80">{FEATURES[3].desc}</p>
+                <p className="font-sans text-[16px] leading-relaxed text-ink-secondary/80">{FEATURES[3].desc}</p>
               </div>
             </Surface>
           </div>

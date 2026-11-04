@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { DisplayTitle, TitleAccent } from "@/components/ui/display-title";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 
 const COPY =
   "Modern businesses need smarter systems, not more tools. We automate workflows that save time, simplify operations, and drive growth.";
@@ -257,9 +257,13 @@ export default function WinWinGrowth() {
 
       <div className="relative container mx-auto px-4 flex flex-col items-center">
         {/* Clean, standard heading instead of the sticker */}
-        <DisplayTitle className="wwg-title text-center mb-8 lg:mb-12 text-4xl sm:text-5xl opacity-100">
-          Win-Win <TitleAccent>Growth.</TitleAccent>
-        </DisplayTitle>
+        <ScrollRevealH2
+          as="h2"
+          text="Win-Win Growth."
+          highlightWords={["Growth."]}
+          highlightClass="text-ink-muted"
+          className="text-display font-display font-bold text-ink text-center mb-8 lg:mb-12 text-4xl sm:text-5xl opacity-100"
+        />
 
         {/* Hub-and-spoke AI diagram */}
         <svg

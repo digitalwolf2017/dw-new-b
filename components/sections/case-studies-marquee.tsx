@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 
 interface MarqueeItem {
   src: string;
@@ -76,7 +77,7 @@ function VerticalMarqueeColumn({
         {loopedItems.map((item, index) => (
           <div
             key={index}
-            className="group/img relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-lg sm:rounded-xl border border-white/10 bg-surface shadow-sm"
+            className="group/img relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-none border border-white/10 bg-surface shadow-sm"
           >
             <Image
               src={item.src}
@@ -100,7 +101,7 @@ export function CaseStudiesMarquee() {
       className="relative w-full overflow-hidden bg-base py-4 sm:py-6 px-[16px]"
     >
       {/* The Rounded Container Card: exact black bg and side margins matching Hero and Service Rail */}
-      <div className="relative w-full overflow-hidden rounded-[12px] border border-white/10 bg-black px-6 py-9 sm:px-10 sm:py-12 lg:px-14 lg:py-14 xl:px-18 xl:py-16">
+      <div className="relative w-full overflow-hidden rounded-none border border-white/10 bg-black py-9 sm:py-12 lg:py-14 xl:py-16">
           
           {/* Subtle ambient glow */}
           <div
@@ -108,14 +109,14 @@ export function CaseStudiesMarquee() {
             aria-hidden="true"
           />
 
-          <div className="mx-auto flex w-full max-w-5xl xl:max-w-6xl flex-col items-start lg:flex-row lg:items-center lg:justify-center gap-10 lg:gap-14 xl:gap-20">
+          <div className="mx-auto flex w-full container flex-col items-start lg:flex-row lg:items-center lg:justify-start gap-10 lg:gap-14 xl:gap-20 px-5 sm:px-8 lg:px-12">
             {/* Left Column: Heading, Divider, Description, CTA */}
             <div className="flex w-full flex-col items-start lg:max-w-md xl:max-w-lg shrink-0">
-              <h2 className="font-display text-4xl font-bold uppercase tracking-wide text-white sm:text-5xl lg:text-[44px] xl:text-[50px] leading-[1.08]">
-                OUR CASE
-                <br />
-                STUDIES
-              </h2>
+              <ScrollRevealH2
+                as="h2"
+                lines={["OUR CASE", "STUDIES"]}
+                className="font-display text-4xl font-bold uppercase tracking-wide text-white sm:text-5xl lg:text-[44px] xl:text-[50px] leading-[1.08]"
+              />
 
               {/* Accent Divider Line */}
               <div
@@ -126,7 +127,7 @@ export function CaseStudiesMarquee() {
               {/* Body Text: site theme color (#c4c7c5 text-ink-secondary) */}
               <p
                 style={{ color: "#c4c7c5" }}
-                className="font-sans text-sm leading-relaxed text-ink-secondary sm:text-base sm:leading-relaxed max-w-sm sm:max-w-md font-normal"
+                className="font-sans text-[16px] leading-relaxed text-ink-secondary sm:text-[18px] sm:leading-relaxed max-w-sm sm:max-w-md font-normal"
               >
                 Real Challenges. Strategic Solutions. Measurable Growth. Explore
                 how we turn business objectives into meaningful outcomes through

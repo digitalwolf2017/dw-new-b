@@ -3,7 +3,7 @@ import { Surface } from "@/components/ui/surface";
 export function Partners() {
   return (
     <section className="max-w-6xl mx-auto flex w-full flex-col items-center px-5 sm:px-8 lg:px-12">
-      <Surface className="flex w-full flex-wrap items-center justify-center gap-10 rounded-[12px] border border-line bg-surface/30 py-10 px-8 sm:justify-between lg:px-16">
+      <Surface className="flex w-full flex-wrap items-center justify-center gap-10 rounded-none border border-line bg-surface/30 py-10 px-8 sm:justify-between lg:px-16">
         {/* Google Partner */}
         <div className="flex items-center gap-3 text-ink-muted transition-colors hover:text-ink">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">

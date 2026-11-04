@@ -1,3 +1,4 @@
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 "use client";
 
 import { useRef } from "react";
@@ -106,11 +107,13 @@ export function CaseStudies() {
         {/* Column 1: Title Block (Sticky) + Bottom Card */}
         <div className="w-full lg:w-4/12 flex flex-col justify-between z-10 relative h-auto">
           <div className="lg:sticky lg:top-32 pr-4 mb-16 lg:mb-32">
-            <h2 className="cs-text-reveal text-4xl md:text-5xl font-display font-bold uppercase text-ink leading-[1.1] mb-8 tracking-wide">
-              OUR CASE<br />STUDIES
-            </h2>
+            <ScrollRevealH2
+              as="h2"
+              lines={["OUR CASE", "STUDIES"]}
+              className="text-4xl md:text-5xl font-display font-bold uppercase text-ink leading-[1.1] mb-8 tracking-wide"
+            />
             <div className="cs-text-reveal w-12 h-px bg-ink/30 mb-8"></div>
-            <p className="cs-text-reveal text-ink-secondary text-sm leading-relaxed mb-10 max-w-sm">
+            <p className="cs-text-reveal text-ink-secondary text-[16px] leading-relaxed mb-10 max-w-sm">
               Our capabilities span the full digital spectrum, from creative
               direction to technical automation. We don&apos;t just build, we architect
               for conversion.
@@ -151,7 +154,7 @@ function Card({ data, className }: { data: CaseStudy; className?: string }) {
   return (
     <div
       className={cn(
-        "cs-card p-8 md:p-10 rounded-2xl bg-linear-to-b from-[#2A2A2A] to-[#111111] border border-white/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] transition-transform duration-500 hover:-translate-y-2 flex flex-col justify-between",
+        "cs-card p-8 md:p-10 rounded-none bg-linear-to-b from-[#2A2A2A] to-[#111111] border border-white/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] transition-transform duration-500 hover:-translate-y-2 flex flex-col justify-between",
         className
       )}
     >
@@ -159,7 +162,7 @@ function Card({ data, className }: { data: CaseStudy; className?: string }) {
         <h3 className="text-xl md:text-2xl font-bold text-white mb-6 pr-4 leading-snug font-sans">
           {data.title}
         </h3>
-        <p className="text-white/60 text-sm leading-relaxed mb-12 font-sans">
+        <p className="text-white/60 text-[16px] leading-relaxed mb-12 font-sans">
           {data.desc}
         </p>
       </div>

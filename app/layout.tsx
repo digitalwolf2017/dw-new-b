@@ -4,6 +4,8 @@ import { Manrope, Cinzel } from "next/font/google";
 import { SITE } from "@/constants/site";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
+import { EnquiryModalProvider } from "@/components/ui/enquiry-modal";
 
 import "./globals.css";
 
@@ -55,8 +57,6 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
-import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -68,9 +68,11 @@ export default function RootLayout({
     >
       <body className="bg-base text-ink-secondary min-h-full antialiased">
         <SmoothScrollProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <EnquiryModalProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </EnquiryModalProvider>
         </SmoothScrollProvider>
       </body>
     </html>

@@ -118,8 +118,8 @@ const MARKETING_SERVICES = [
 ];
 
 export function ServiceRail() {
-  const [activeTab, setActiveTab] = useState<"Development" | "Marketing">("Development");
-  const currentServices = activeTab === "Development" ? DEVELOPMENT_SERVICES : MARKETING_SERVICES;
+  const [activeTab, setActiveTab] = useState<"Marketing" | "Development">("Marketing");
+  const currentServices = activeTab === "Marketing" ? MARKETING_SERVICES : DEVELOPMENT_SERVICES;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -162,6 +162,14 @@ export function ServiceRail() {
       duration: 1,
     }, 0);
 
+    // 2. Progress line running at the bottom in sync with slider %
+    tl.fromTo(
+      ".service-progress-line",
+      { width: "0%" },
+      { width: "100%", ease: "none", duration: 1 },
+      0
+    );
+
     // 2. Alignment animation: as sliding starts, the up/down cards smoothly converge into the same horizontal line
     tl.fromTo(
       upCards,
@@ -198,7 +206,7 @@ export function ServiceRail() {
         className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden py-4 sm:py-6 px-[16px]"
       >
         {/* Black background card with rounded corners and side gaps */}
-        <div className="relative flex h-full max-h-[92vh] w-full flex-col justify-between overflow-hidden rounded-[12px] border border-white/10 bg-black py-6 sm:py-8 md:py-10">
+        <div className="relative flex h-full max-h-[92vh] w-full flex-col justify-between overflow-hidden rounded-none border border-white/10 bg-black py-6 sm:py-8 md:py-10">
           
           {/* Header row: exact same SectionHeader and Tabs */}
           <div className="shrink-0 mx-auto mb-4 md:mb-8 flex w-full container flex-col gap-6 px-5 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
@@ -214,25 +222,29 @@ export function ServiceRail() {
               {/* Sliding Background Pill */}
               <div
                 className={`absolute bottom-1 top-1 w-[calc(50%-4px)] rounded-full bg-white shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-transform duration-300 ease-out ${
-                  activeTab === "Development" ? "translate-x-0" : "translate-x-full"
+                  activeTab === "Marketing" ? "translate-x-0" : "translate-x-full"
                 }`}
               />
 
               <button
-                onClick={() => setActiveTab("Development")}
-                className={`relative z-10 flex-1 rounded-full py-2 text-center text-sm font-medium transition-colors duration-300 ${
-                  activeTab === "Development" ? "text-black" : "text-white/70 hover:text-white"
-                }`}
-              >
-                Development
-              </button>
-              <button
+                type="button"
+                data-no-modal
                 onClick={() => setActiveTab("Marketing")}
                 className={`relative z-10 flex-1 rounded-full py-2 text-center text-sm font-medium transition-colors duration-300 ${
                   activeTab === "Marketing" ? "text-black" : "text-white/70 hover:text-white"
                 }`}
               >
                 Marketing
+              </button>
+              <button
+                type="button"
+                data-no-modal
+                onClick={() => setActiveTab("Development")}
+                className={`relative z-10 flex-1 rounded-full py-2 text-center text-sm font-medium transition-colors duration-300 ${
+                  activeTab === "Development" ? "text-black" : "text-white/70 hover:text-white"
+                }`}
+              >
+                Development
               </button>
             </div>
           </div>
@@ -256,7 +268,7 @@ export function ServiceRail() {
                     >
                       <Surface
                         interactive
-                        className="relative flex h-[370px] md:h-[430px] lg:h-[470px] w-72 md:w-80 lg:w-90 shrink-0 flex-col overflow-hidden rounded-2xl border border-line"
+                        className="relative flex h-[370px] md:h-[430px] lg:h-[470px] w-72 md:w-80 lg:w-90 shrink-0 flex-col overflow-hidden rounded-none border border-line"
                       >
                         <GreyscaleImage
                           src={service.image}
@@ -283,7 +295,7 @@ export function ServiceRail() {
                           <Heading as="h3" className="font-display text-3xl leading-tight">
                             {service.title}
                           </Heading>
-                          <p className="text-sm text-white/70">
+                          <p className="text-[16px] text-white/70">
                             {service.description}
                           </p>
                           <ArrowRight className="h-5 w-5 mt-2" />
@@ -294,6 +306,11 @@ export function ServiceRail() {
                 })}
               </div>
             </div>
+          </div>
+
+          {/* Progress line along the bottom edge, runs with the slider % to 100% */}
+          <div className="pointer-events-none absolute bottom-0 inset-x-0 h-[2px] bg-white/10 z-20" aria-hidden="true">
+            <div className="service-progress-line h-full w-0 bg-white shadow-[0_0_8px_rgba(255,255,255,0.8),0_0_16px_rgba(255,255,255,0.4)] will-change-[width]" />
           </div>
 
         </div>

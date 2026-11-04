@@ -11,7 +11,7 @@ export function GlobalScrollReveal({ children }: { children: React.ReactNode }) 
     sections.forEach((section) => {
       // Find typography and structural blocks to stagger
       const animatableElements = section.querySelectorAll(
-        "h1, h2, h3, h4, p, img, form, .grid > div, .splide, a.group"
+        "h1:not([data-scroll-reveal]), h2:not([data-scroll-reveal]), h3, h4, p, img, form, .grid > div, .splide, a.group"
       );
 
       if (animatableElements.length === 0) return;

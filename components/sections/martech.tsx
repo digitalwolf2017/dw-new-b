@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 const MARTECH_DATA = [
-  { letter: "M", label: "AUTOMATION", pos: "top", h: "h-14 sm:h-18 lg:h-22", left: "80%" },
-  { letter: "A", label: "MARKETING", pos: "bottom", h: "h-12 sm:h-16 lg:h-20", left: "25%" },
+  { letter: "M", label: "MARKETING", pos: "top", h: "h-14 sm:h-18 lg:h-22", left: "80%" },
+  { letter: "A", label: "AUTOMATION", pos: "bottom", h: "h-12 sm:h-16 lg:h-20", left: "25%" },
   { letter: "R", label: "RESEARCH", pos: "bottom", h: "h-16 sm:h-22 lg:h-28", left: "75%" },
   { letter: "T", label: "TECHNOLOGY", pos: "top", h: "h-10 sm:h-12 lg:h-16", left: "50%" },
   { letter: "E", label: "ENGAGEMENT", pos: "bottom", h: "h-20 sm:h-28 lg:h-34", left: "50%" },
@@ -40,7 +40,7 @@ export function Martech() {
       // 2. Grow the lines from the letters outwards
       tl.from(".martech-line", {
         scaleY: 0,
-        transformOrigin: (i, target) => 
+        transformOrigin: (i, target) =>
           target.dataset.pos === "top" ? "bottom center" : "top center",
         duration: 0.8,
         stagger: 0.1,
@@ -75,7 +75,7 @@ export function Martech() {
       className="relative w-full overflow-hidden bg-base py-4 sm:py-6 px-[16px]"
     >
       {/* Floating Rounded Card matching reference image */}
-      <div className="relative flex min-h-[500px] sm:min-h-[580px] lg:min-h-[640px] w-full items-center justify-center overflow-hidden rounded-[12px] border border-white/10 bg-black px-4 py-28 sm:py-36 lg:py-44">
+      <div className="relative flex min-h-[500px] sm:min-h-[580px] lg:min-h-[640px] w-full items-center justify-center overflow-hidden rounded-none border border-white/10 bg-black px-4 py-28 sm:py-36 lg:py-44">
           <div className="flex w-full justify-center items-center gap-1 sm:gap-2">
             {MARTECH_DATA.map((item, i) => (
               <div key={i} className="relative inline-flex">

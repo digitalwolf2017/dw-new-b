@@ -3,34 +3,17 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import SplitType from "split-type";
 
 import { HeroMesh } from "@/components/ui/hero-mesh";
-import { Heading } from "@/components/ui/heading";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 import { Body } from "@/components/ui/body";
 import { Divider } from "@/components/ui/divider";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { Partners } from "@/components/sections/partners";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Split the heading text into words and wrap them in lines
-    const heading = new SplitType(".hero-heading", { types: "lines,words" });
-
-    // Add overflow hidden to the lines so the words can slide up from out of bounds
-    gsap.set(heading.lines, { overflow: "hidden" });
-
-    // Animate the heading words
-    gsap.from(heading.words, {
-      opacity: 0,
-      y: "100%",
-      duration: 1,
-      stagger: 0.15,
-      ease: "power4.out",
-    });
-
     // Animate the other elements sequentially
     gsap.from(".hero-anim-element", {
       y: 30,
@@ -50,7 +33,7 @@ export function Hero() {
       <section
         id="hero"
         data-no-global-reveal
-        className="relative flex min-h-[calc(100vh-7.5rem)] w-full flex-col items-center justify-between overflow-hidden rounded-[12px] border border-white/10 bg-black pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10"
+        className="relative flex min-h-[calc(100vh-7.5rem)] w-full flex-col items-center justify-center overflow-hidden rounded-none border border-white/10 bg-black pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10"
       >
         <HeroMesh />
 
@@ -63,10 +46,14 @@ export function Hero() {
             <Eyebrow>Strategic Growth</Eyebrow>
           </div>
 
-          <Heading as="h1" size="hero" className="uppercase hero-heading pointer-events-auto">
-            <span className="block text-ink">We build digital growth</span>
-            <span className="block text-ink-muted">systems</span>
-          </Heading>
+          <ScrollRevealH2
+            as="h1"
+            lines={["WE BUILD DIGITAL", "GROWTH SYSTEMS"]}
+            highlightWords={["SYSTEMS"]}
+            highlightClass="text-ink-muted"
+            viewportMargin="0px"
+            className="text-[clamp(2.5rem,1.893rem+2.589vw,5rem)] font-sans uppercase font-medium tracking-[-0.02em] text-ink text-center pointer-events-auto leading-[1.1]"
+          />
 
           <div className="hero-anim-element pointer-events-auto">
             <Divider size="sm" />
@@ -79,11 +66,6 @@ export function Hero() {
               intelligence.
             </Body>
           </div>
-        </div>
-
-        {/* Partner Badges at bottom of Hero card */}
-        <div className="hero-anim-element relative z-10 w-full mt-8 sm:mt-12 pointer-events-auto">
-          <Partners />
         </div>
       </section>
     </div>

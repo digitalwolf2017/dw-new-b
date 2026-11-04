@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Body } from "@/components/ui/body";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 interface AboutNewProps {
@@ -93,14 +94,16 @@ export function AboutNew({
 
         {/* Center Content: Headline, Divider, Body, CTA */}
         <div className="z-10 flex w-full max-w-xl flex-col items-center px-6 text-center lg:max-w-2xl xl:max-w-3xl">
-          {/* Main Display Headline */}
-          <h2 className="about-anim-item font-display text-3xl font-bold uppercase tracking-[0.03em] text-white sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[52px] 2xl:text-[58px] leading-[1.12]">
-            Powering The Next
-            <br />
-            Phase Of Digital
-            <br />
-            Growth.
-          </h2>
+          {/* Main Display Headline with Word Reveal Animation */}
+          <ScrollRevealH2
+            as="h2"
+            lines={[
+              "POWERING THE NEXT",
+              "PHASE OF DIGITAL",
+              "GROWTH."
+            ]}
+            className="font-display text-3xl font-bold uppercase tracking-[0.03em] text-white sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[52px] 2xl:text-[58px] leading-[1.12] text-center"
+          />
 
           {/* —— ABOUT US —— */}
           <div className="about-anim-item my-5 flex items-center justify-center gap-3.5 sm:my-6 sm:gap-4">
@@ -127,7 +130,7 @@ export function AboutNew({
           <div className="about-anim-item mt-8 sm:mt-9">
             <Link
               href="#contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-xs sm:text-sm font-semibold tracking-normal text-black shadow-lg transition-all duration-300 hover:scale-105 hover:bg-neutral-100 hover:shadow-[0_0_24px_rgba(255,255,255,0.35)] active:scale-95"
+              className="group inline-flex items-center gap-2 rounded-none bg-white px-7 py-3 text-xs sm:text-sm font-semibold tracking-normal text-black shadow-lg transition-all duration-300 hover:scale-105 hover:bg-neutral-100 hover:shadow-[0_0_24px_rgba(255,255,255,0.35)] active:scale-95"
             >
               <span>Know More</span>
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

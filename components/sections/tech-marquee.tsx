@@ -1,5 +1,5 @@
-import { DisplayTitle } from "@/components/ui/display-title";
 import { Body } from "@/components/ui/body";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 import { SiFigma, SiFlutter, SiFirebase, SiSupabase, SiJavascript, SiTailwindcss, SiVercel } from "react-icons/si";
 import { FaHtml5, FaCss3Alt, FaAws, FaReact, FaNodeJs, FaGitAlt, FaAngular, FaBootstrap, FaPhp, FaAndroid } from "react-icons/fa";
 import { TbBrandCpp } from "react-icons/tb";
@@ -19,9 +19,11 @@ export function TechMarquee() {
         
         {/* Left Side: Text */}
         <div className="flex w-full shrink-0 flex-col gap-4 lg:w-1/3">
-          <DisplayTitle className="text-left text-4xl sm:text-5xl leading-tight">
-            Our<br />TECHNOLOGIES
-          </DisplayTitle>
+          <ScrollRevealH2
+            as="h2"
+            lines={["OUR", "TECHNOLOGIES"]}
+            className="text-display font-display font-bold text-ink text-left text-4xl sm:text-5xl leading-tight uppercase"
+          />
           <Body className="max-w-xs text-ink-secondary">
             Tools we trust to build, scale, and ship fast.
           </Body>

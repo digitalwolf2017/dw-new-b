@@ -29,7 +29,7 @@ export function GreyscaleImage({
       {halo && (
         <div
           aria-hidden
-          className="bg-halo rounded-media absolute -inset-4 blur-[20px]"
+          className="bg-halo rounded-none absolute -inset-4 blur-[20px]"
         />
       )}
       <Image className={cn("relative saturate-0", className)} alt={alt} {...props} />

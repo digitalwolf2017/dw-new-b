@@ -2,6 +2,7 @@ import { Body } from "@/components/ui/body";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { GreyscaleImage } from "@/components/ui/greyscale-image";
 import { Heading } from "@/components/ui/heading";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 import { Code, TerminalSquare } from "lucide-react";
 
 export function About() {
@@ -21,9 +22,11 @@ export function About() {
       <div className="flex flex-col gap-12 lg:col-span-6">
         <div className="flex flex-col gap-6">
           <Eyebrow>ESTABLISHED 2018</Eyebrow>
-          <Heading as="h2" className="font-display font-bold text-4xl uppercase tracking-wide text-white sm:text-5xl">
-            ABOUT US
-          </Heading>
+          <ScrollRevealH2
+            as="h2"
+            text="ABOUT US"
+            className="font-display font-bold text-4xl uppercase tracking-wide text-white sm:text-5xl"
+          />
           <div className="flex flex-col gap-4">
             <Body size="lg" className="text-ink-secondary">
               Digital Wolf helps businesses navigate the evolving digital landscape
@@ -43,14 +46,14 @@ export function About() {
           <div className="flex flex-col gap-4">
             <Code className="h-6 w-6 text-white" strokeWidth={1.5} />
             <Heading as="h3" className="text-lg text-white leading-[1.1] font-semibold">One Connected<br/>Ecosystem</Heading>
-            <Body  className="text-md text-ink-secondary leading-tight">
+            <Body  className="text-[18px] text-ink-secondary leading-tight">
               We integrate SEO, Branding, Performance Marketing, AI, and Technical solutions to create measurable business growth.
             </Body>
           </div>
           <div className="flex flex-col gap-4">
             <TerminalSquare className="h-6 w-6 text-white" strokeWidth={1.5} />
             <Heading as="h3" className="text-lg text-white leading-[1.1] font-semibold">Built on<br/>Partnership</Heading>
-            <Body className="text-md text-ink-secondary leading-tight">
+            <Body className="text-[18px] text-ink-secondary leading-tight">
               Working as an extension of your team, we deliver sustainable growth through collaboration, transparency, and continuous optimisation.
             </Body>
           </div>

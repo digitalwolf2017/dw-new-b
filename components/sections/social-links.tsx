@@ -39,7 +39,7 @@ export function SocialLinks() {
           <Link
             key={social.platform}
             href={social.href}
-            className="group relative flex w-full max-w-95 items-center justify-between rounded-[3rem] border border-white/5 bg-[#050505] py-5 pr-5 pl-16 transition-all duration-500 hover:border-white/10 hover:bg-white/2"
+            className="group relative flex w-full max-w-95 items-center justify-between rounded-[3rem] border border-white/5 bg-[#050505] py-5 pr-5 pl-16 shadow-2xl shadow-black/80 transition-all duration-500 hover:border-white/10 hover:bg-white/2"
           >
             {/* Big Icon Circle */}
             <div className="absolute -left-4 -top-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#E5E5E5] transition-transform duration-500 group-hover:scale-105">
@@ -51,7 +51,7 @@ export function SocialLinks() {
               <h4 className="font-sans font-semibold text-white tracking-wide">
                 {social.title}
               </h4>
-              <p className="font-sans text-xs text-white/50 mt-1">
+              <p className="font-sans text-[14px] text-white/50 mt-1">
                 {social.handle}
               </p>
             </div>

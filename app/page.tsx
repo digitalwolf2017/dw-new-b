@@ -1,5 +1,4 @@
 import { Hero } from "@/components/sections/hero";
-import { Partners } from "@/components/sections/partners";
 import { AboutNew } from "@/components/sections/about-new";
 import { Stats } from "@/components/sections/stats";
 import { ServiceRail } from "@/components/sections/service-rail";

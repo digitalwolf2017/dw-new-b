@@ -1,5 +1,5 @@
 import { Body } from "@/components/ui/body";
-import { DisplayTitle } from "@/components/ui/display-title";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 
 function ProcessStep({ number, title, desc }: { number: string, title: string, desc: string }) {
   return (
@@ -9,7 +9,7 @@ function ProcessStep({ number, title, desc }: { number: string, title: string, d
       </div>
       <div className="flex flex-col gap-3 flex-1">
         <h3 className="font-sans text-sm font-bold uppercase tracking-[0.15em] text-white">{title}</h3>
-        <p className="font-sans text-sm leading-relaxed text-ink-secondary/90">{desc}</p>
+        <p className="font-sans text-[16px] leading-relaxed text-ink-secondary/90">{desc}</p>
         <div className="h-px w-full bg-white/10 mt-3" />
       </div>
     </div>
@@ -23,11 +23,13 @@ export function AgencyProcess() {
       {/* Left Column: Sticky Title */}
       <div className="w-full lg:w-5/12 shrink-0">
         <div className="flex flex-col gap-6 lg:sticky lg:top-32">
-          <DisplayTitle className="text-4xl sm:text-5xl uppercase leading-tight">
-            OUR<br />AGENCY<br />PROCESS
-          </DisplayTitle>
+          <ScrollRevealH2
+            as="h2"
+            lines={["OUR", "AGENCY", "PROCESS"]}
+            className="text-display font-display font-bold text-ink text-4xl sm:text-5xl uppercase leading-tight"
+          />
           <div className="h-px w-16 bg-white/30 my-2" />
-          <Body className="text-ink-secondary/90 max-w-sm text-sm leading-relaxed">
+          <Body className="text-ink-secondary/90 max-w-sm text-[16px] leading-relaxed">
             Our capabilities span the full digital spectrum, from creative direction
             to technical automation. We don&rsquo;t just build, we architect for
             conversion.
@@ -65,16 +67,16 @@ export function AgencyProcess() {
         <div className="flex w-full lg:justify-start">
           <ProcessStep 
             number="04" 
-            title="Scaling" 
-            desc="Using predictive modeling to scale winning patterns while the AI automates operational maintenance, freeing you to lead." 
+            title="Optimization" 
+            desc="Continuous algorithmic calibration and conversion rate intelligence to maximize client lifetime value and lower acquisition costs." 
           />
         </div>
 
         <div className="flex w-full lg:justify-end">
           <ProcessStep 
             number="05" 
-            title="Optimization" 
-            desc="Continuous algorithmic calibration and conversion rate intelligence to maximize client lifetime value and lower acquisition costs." 
+            title="Scaling" 
+            desc="Using predictive modeling to scale winning patterns while the AI automates operational maintenance, freeing you to lead." 
           />
         </div>
 

@@ -67,11 +67,11 @@
   --text-card--font-weight: 600;
 
   /* 18/32.4 */
-  --text-body-lg: clamp(1rem, 0.962rem + 0.162vw, 1.125rem);
+  --text-body-lg: clamp(1.125rem, 1.087rem + 0.162vw, 1.25rem);
   --text-body-lg--line-height: 1.8;
 
   /* 16/25.6 */
-  --text-body: 1rem;
+  --text-body: 1.125rem;
   --text-body--line-height: 1.6;
 
   /* 12/12, +1.2px — eyebrows, nav links, button labels */
@@ -85,8 +85,16 @@
   /* The design is square-ish: 4px on panels, 12px on the blurred media
      underlay, 0 on buttons. Nothing here is rounded in the usual "premium SaaS"
      sense and that restraint is load-bearing. */
-  --radius-card: 4px;
-  --radius-media: 12px;
+  --radius-card: 0px;
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+  --radius-media: 0px;
 
   --shadow-accent-glow: 0 0 40px var(--color-accent-glow);
   --shadow-lift: 0 20px 60px rgb(0 0 0 / 0.5);
@@ -155,6 +163,10 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  p {
+    font-size: var(--text-body);
+  }
+
   body {
     background-color: var(--color-base);
     color: var(--color-ink-secondary);
@@ -189,7 +201,7 @@
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 0px;
   }
 
   /* Reduced motion is a hard kill-switch, not a suggestion. GSAP timelines
@@ -204,5 +216,14 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+}
+
+@keyframes borderGlowRun {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1000;
   }
 }

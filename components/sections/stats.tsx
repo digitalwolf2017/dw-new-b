@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 export function Stats({ id = "stats" }: { id?: string }) {
@@ -128,7 +129,7 @@ export function Stats({ id = "stats" }: { id?: string }) {
       className="relative w-full overflow-hidden bg-base py-8 sm:py-12 lg:py-16 px-[16px]"
     >
       {/* Floating Rounded Card matching site card styling with increased top/bottom padding */}
-      <div className="relative mx-auto w-full overflow-hidden rounded-[12px] border border-white/10 bg-black px-6 py-16 sm:px-10 sm:py-20 lg:px-14 lg:py-24 xl:px-18 xl:py-28">
+      <div className="relative mx-auto w-full overflow-hidden rounded-none border border-white/10 bg-black px-6 py-16 sm:px-10 sm:py-20 lg:px-14 lg:py-24 xl:px-18 xl:py-28">
         {/* Subtle ambient radial glow */}
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.035),transparent_70%)]"
@@ -268,17 +269,21 @@ export function Stats({ id = "stats" }: { id?: string }) {
 
           {/* Right Column: Headline, Description, Pill CTA */}
           <div className="stat-right-content relative z-10 flex w-full flex-col items-start">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold uppercase tracking-[0.02em] text-white leading-[1.12]">
-              WE HELP BRANDS<br />
-              GROW FASTER,<br />
-              SMARTER
-            </h2>
+            <ScrollRevealH2
+              as="h2"
+              lines={[
+                "WE HELP BRANDS",
+                "GROW FASTER,",
+                "SMARTER"
+              ]}
+              className="font-display text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold uppercase tracking-[0.02em] text-white leading-[1.12]"
+            />
 
             <div className="mt-5 flex flex-col gap-3.5 text-sm sm:text-base leading-relaxed font-normal">
-              <p className="text-ink-secondary" style={{ color: "var(--color-ink-secondary, #c4c7c5)" }}>
+              <p className="text-ink-secondary text-[18px]" style={{ color: "var(--color-ink-secondary, #c4c7c5)" }}>
                 We create data–driven digital marketing strategies that bring the right audience to your brand, increase engagement and drive measurable business growth.
               </p>
-              <p className="text-ink-secondary" style={{ color: "var(--color-ink-secondary, #c4c7c5)" }}>
+              <p className="text-ink-secondary text-[18px]" style={{ color: "var(--color-ink-secondary, #c4c7c5)" }}>
                 From strategy to execution, we work as your growth partner at every step.
               </p>
             </div>
@@ -286,7 +291,7 @@ export function Stats({ id = "stats" }: { id?: string }) {
             <div className="mt-7 sm:mt-9">
               <Link
                 href="#contact"
-                className="group inline-flex items-center gap-3 rounded-full border border-white/30 bg-transparent px-7 py-3 sm:px-8 sm:py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-black active:scale-95"
+                className="group inline-flex items-center gap-3 rounded-none border border-white/30 bg-transparent px-7 py-3 sm:px-8 sm:py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-black active:scale-95"
               >
                 <span>BOOK A FREE STRATEGY CALL</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

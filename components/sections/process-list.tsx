@@ -1,7 +1,7 @@
 import { Body } from "@/components/ui/body";
 import { Divider } from "@/components/ui/divider";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { DisplayTitle } from "@/components/ui/display-title";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 import { Heading } from "@/components/ui/heading";
 
 const STEPS = [
@@ -16,7 +16,7 @@ export function ProcessList() {
     <section id="process" className="relative mx-auto w-full max-w-7xl px-5 py-32 sm:px-8 lg:px-12">
       <div className="mb-24 text-center">
         <Eyebrow className="mb-6 block">HOW WE WORK</Eyebrow>
-        <DisplayTitle>Our Agency Process</DisplayTitle>
+        <ScrollRevealH2 as="h2" text="Our Agency Process" className="text-display font-display font-bold text-ink" />
       </div>
 
       <div className="mx-auto flex max-w-5xl flex-col gap-24">

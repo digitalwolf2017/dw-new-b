@@ -1,6 +1,6 @@
 "use client";
 
-import { DisplayTitle } from "@/components/ui/display-title";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 import { Body } from "@/components/ui/body";
 import { cn } from "@/lib/utils";
 
@@ -35,9 +35,11 @@ export function ClientMarquee() {
         
         {/* Top: Text */}
         <div className="flex w-full flex-col items-center text-center gap-4 px-5 sm:px-8 lg:px-12 relative z-10">
-          <DisplayTitle className="text-4xl sm:text-5xl leading-tight">
-            Trusted By<br />INDUSTRY LEADERS
-          </DisplayTitle>
+          <ScrollRevealH2
+            as="h2"
+            lines={["TRUSTED BY", "INDUSTRY LEADERS"]}
+            className="text-display font-display font-bold text-ink text-center text-4xl sm:text-5xl leading-tight uppercase"
+          />
           <Body className="max-w-md text-ink-secondary">
             Partnering with ambitious brands to drive meaningful growth.
           </Body>

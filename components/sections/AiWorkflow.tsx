@@ -5,7 +5,7 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import { MegaphoneIcon, PenIcon } from "@/components/ui/icons";
 import { AI_WORKFLOW_STEPS, type AiWorkflowIcon } from "@/lib/data/ai-workflow";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { DisplayTitle, TitleAccent } from "@/components/ui/display-title";
+import ScrollRevealH2 from "@/components/ui/ScrollRevealH2";
 
 const ICONS: Record<AiWorkflowIcon, ComponentType<{ className?: string }>> = {
   megaphone: MegaphoneIcon,
@@ -81,9 +81,13 @@ export default function AiWorkflow({ trackRef, wrapperRef }: AiWorkflowProps) {
 
       {/* Header Area */}
       <div className="relative z-10 w-full px-8 md:px-16 lg:px-24 shrink-0 mt-8 lg:mt-4 pointer-events-none">
-        <DisplayTitle className="text-ink text-4xl sm:text-5xl">
-          AI <TitleAccent>Automation</TitleAccent> Workflow
-        </DisplayTitle>
+        <ScrollRevealH2
+          as="h2"
+          text="AI Automation Workflow"
+          highlightWords={["Automation"]}
+          highlightClass="text-ink-muted"
+          className="text-display font-display font-bold text-ink text-4xl sm:text-5xl"
+        />
         <p className="mt-4 text-ink-muted text-body-lg max-w-2xl pointer-events-auto">
           We string together powerful logic, custom data processing, and seamless integrations to build visual automation engines that scale your business.
         </p>
@@ -159,7 +163,7 @@ function WorkflowNode({
 
   return (
     <div 
-      className={`n8n-node w-70 h-72 rounded-xl border border-line bg-surface shadow-2xl backdrop-blur-md z-10 overflow-hidden flex flex-col ${className}`}
+      className={`n8n-node w-70 h-72 rounded-none border border-line bg-surface shadow-2xl backdrop-blur-md z-10 overflow-hidden flex flex-col ${className}`}
       style={{ ...style, boxShadow: "0 16px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)" }}
     >
       {/* Top Color Bar Tag */}
@@ -172,7 +176,7 @@ function WorkflowNode({
         {/* Node Header */}
         <div className="flex items-center gap-3 mb-3">
           <div 
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-black/40 border border-line"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-none bg-black/40 border border-line"
             style={{ color: color }}
           >
             <Icon className="h-4 w-4" />
@@ -195,15 +199,15 @@ function WorkflowNode({
 
       {/* Input Port */}
       {hasInput && (
-        <div className="absolute top-1/2 -left-2.25 -translate-y-1/2 w-4.5 h-4.5 bg-surface border-2 border-line rounded-full flex items-center justify-center z-20">
-          <div className="w-1.5 h-1.5 rounded-full bg-ink-muted" />
+        <div className="absolute top-1/2 -left-2.25 -translate-y-1/2 w-4.5 h-4.5 bg-surface border-2 border-line rounded-none flex items-center justify-center z-20">
+          <div className="w-1.5 h-1.5 rounded-none bg-ink-muted" />
         </div>
       )}
 
       {/* Output Port */}
       {hasOutput && (
-        <div className="absolute top-1/2 -right-2.25 -translate-y-1/2 w-4.5 h-4.5 bg-surface border-2 border-line rounded-full flex items-center justify-center z-20">
-          <div className="w-1.5 h-1.5 rounded-full bg-ink-muted" />
+        <div className="absolute top-1/2 -right-2.25 -translate-y-1/2 w-4.5 h-4.5 bg-surface border-2 border-line rounded-none flex items-center justify-center z-20">
+          <div className="w-1.5 h-1.5 rounded-none bg-ink-muted" />
         </div>
       )}
     </div>
