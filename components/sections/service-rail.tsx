@@ -5,7 +5,7 @@ import { SectionHeader } from "./section-header";
 import { Surface } from "@/components/ui/surface";
 import { Heading } from "@/components/ui/heading";
 import { GreyscaleImage } from "@/components/ui/greyscale-image";
-import { ArrowRight, Bot, Cpu, PencilRuler, Search, PenTool, LineChart, Smartphone, Cloud, Database, Share2, FileText, BarChart } from "lucide-react";
+import { Bot, Cpu, PencilRuler, Search, PenTool, LineChart, Smartphone, Cloud, Database, Share2, FileText, BarChart } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -257,7 +257,6 @@ export function ServiceRail() {
                 className="flex gap-6 md:gap-8 w-max pr-5 sm:pr-8 lg:pr-12 xl:pr-[max(3rem,calc((100vw-1280px)/2))]"
               >
                 {currentServices.map((service, i) => {
-                  const Icon = service.icon;
                   const isOdd = i % 2 === 1;
                   return (
                     <div
@@ -283,11 +282,10 @@ export function ServiceRail() {
                         <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent" />
 
                         {/* Top Badge */}
-                        <div className="absolute left-6 right-6 top-6 flex items-center justify-between text-white/80">
+                        <div className="absolute left-6 right-6 top-6 flex items-center text-white/80">
                           <span className="text-[10px] font-bold tracking-widest uppercase">
                             {service.index} | {service.category}
                           </span>
-                          <Icon className="h-5 w-5" />
                         </div>
 
                         {/* Bottom Content */}
@@ -298,7 +296,6 @@ export function ServiceRail() {
                           <p className="text-[16px] text-white/70">
                             {service.description}
                           </p>
-                          <ArrowRight className="h-5 w-5 mt-2" />
                         </div>
                       </Surface>
                     </div>

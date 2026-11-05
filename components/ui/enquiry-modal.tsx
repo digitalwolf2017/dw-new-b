@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
@@ -11,6 +11,7 @@ import {
   Layers,
   ChevronDown,
   CheckCircle2,
+  Check,
 } from "lucide-react";
 import { SolidButton } from "@/components/ui/solid-button";
 
@@ -28,19 +29,38 @@ const EnquiryModalContext = createContext<EnquiryModalContextType>({
 
 export const useEnquiryModal = () => useContext(EnquiryModalContext);
 
-const SERVICES_OPTIONS = [
-  "Performance Marketing",
-  "Creative Strategy",
-  "UI & UX Design",
-  "AI Automation",
-  "Web & Mobile Development",
-  "Brand Identity & Scaling",
-  "Full Digital Transformation",
+// Services matching the services section (Marketing + Development)
+const SERVICE_GROUPS = [
+  {
+    category: "Marketing Services",
+    items: [
+      { label: "Performance Marketing", tag: "Paid Growth" },
+      { label: "Brand Strategy", tag: "Creative" },
+      { label: "SEO", tag: "Organic" },
+      { label: "Social Marketing", tag: "Social Media" },
+      { label: "Content Marketing", tag: "Content" },
+      { label: "Data & Insights", tag: "Analytics" },
+    ],
+  },
+  {
+    category: "Development Services",
+    items: [
+      { label: "AI Automation", tag: "Smart Systems" },
+      { label: "UI/UX Design", tag: "Experience Design" },
+      { label: "Web Apps", tag: "Architecture" },
+      { label: "Mobile Apps (iOS & Android)", tag: "Mobile Apps" },
+      { label: "DevOps & Cloud", tag: "Cloud Infrastructure" },
+      { label: "Backend Systems", tag: "API Integration" },
+    ],
+  },
 ];
 
 export function EnquiryModalProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [serviceError, setServiceError] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -51,11 +71,15 @@ export function EnquiryModalProvider({ children }: { children: React.ReactNode }
 
   const openModal = () => {
     setSubmitted(false);
+    setIsDropdownOpen(false);
+    setServiceError(false);
     setIsOpen(true);
   };
 
   const closeModal = () => {
     setIsOpen(false);
+    setIsDropdownOpen(false);
+    setServiceError(false);
   };
 
   // Lock body scroll when popup is open
@@ -69,16 +93,33 @@ export function EnquiryModalProvider({ children }: { children: React.ReactNode }
     }
   }, [isOpen]);
 
-  // Close on Escape key press
+  // Close on Escape key press (closes dropdown first if open, then modal)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        closeModal();
+      if (e.key === "Escape") {
+        if (isDropdownOpen) {
+          setIsDropdownOpen(false);
+        } else if (isOpen) {
+          closeModal();
+        }
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen]);
+  }, [isOpen, isDropdownOpen]);
+
+  // Click outside listener for dropdown
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    if (isDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [isDropdownOpen]);
 
   // Global click listener: when any button / CTA of the site is clicked, open popup
   useEffect(() => {
@@ -132,6 +173,12 @@ export function EnquiryModalProvider({ children }: { children: React.ReactNode }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.service) {
+      setServiceError(true);
+      setIsDropdownOpen(true);
+      return;
+    }
+    setServiceError(false);
     setSubmitted(true);
     setTimeout(() => {
       closeModal();
@@ -213,7 +260,7 @@ export function EnquiryModalProvider({ children }: { children: React.ReactNode }
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
                   {/* 1. Full Name */}
-                  <div className="relative flex items-center rounded-full border border-white/[0.08] bg-[#141418] focus-within:border-white/30 focus-within:ring-1 focus-within:ring-white/20 transition-all">
+                  <div className="relative flex items-center rounded-none border border-white/[0.08] bg-[#141418] focus-within:border-white/30 focus-within:ring-1 focus-within:ring-white/20 transition-all">
                     <User className="h-4.5 w-4.5 text-white/50 ml-5 mr-3 shrink-0" />
                     <input
                       type="text"
@@ -228,7 +275,7 @@ export function EnquiryModalProvider({ children }: { children: React.ReactNode }
                   </div>
 
                   {/* 2. Email */}
-                  <div className="relative flex items-center rounded-full border border-white/[0.08] bg-[#141418] focus-within:border-white/30 focus-within:ring-1 focus-within:ring-white/20 transition-all">
+                  <div className="relative flex items-center rounded-none border border-white/[0.08] bg-[#141418] focus-within:border-white/30 focus-within:ring-1 focus-within:ring-white/20 transition-all">
                     <Mail className="h-4.5 w-4.5 text-white/50 ml-5 mr-3 shrink-0" />
                     <input
                       type="email"
@@ -243,7 +290,7 @@ export function EnquiryModalProvider({ children }: { children: React.ReactNode }
                   </div>
 
                   {/* 3. Phone */}
-                  <div className="relative flex items-center rounded-full border border-white/[0.08] bg-[#141418] focus-within:border-white/30 focus-within:ring-1 focus-within:ring-white/20 transition-all">
+                  <div className="relative flex items-center rounded-none border border-white/[0.08] bg-[#141418] focus-within:border-white/30 focus-within:ring-1 focus-within:ring-white/20 transition-all">
                     <Phone className="h-4.5 w-4.5 text-white/50 ml-5 mr-3 shrink-0" />
                     <input
                       type="tel"
@@ -258,7 +305,7 @@ export function EnquiryModalProvider({ children }: { children: React.ReactNode }
                   </div>
 
                   {/* 4. Location */}
-                  <div className="relative flex items-center rounded-full border border-white/[0.08] bg-[#141418] focus-within:border-white/30 focus-within:ring-1 focus-within:ring-white/20 transition-all">
+                  <div className="relative flex items-center rounded-none border border-white/[0.08] bg-[#141418] focus-within:border-white/30 focus-within:ring-1 focus-within:ring-white/20 transition-all">
                     <MapPin className="h-4.5 w-4.5 text-white/50 ml-5 mr-3 shrink-0" />
                     <input
                       type="text"
@@ -272,32 +319,125 @@ export function EnquiryModalProvider({ children }: { children: React.ReactNode }
                     />
                   </div>
 
-                  {/* 5. Services - text is crisp white */}
-                  <div className="relative flex items-center rounded-full border border-white/[0.08] bg-[#141418] focus-within:border-white/30 focus-within:ring-1 focus-within:ring-white/20 transition-all">
-                    <Layers className="h-4.5 w-4.5 text-white/70 ml-5 mr-3 shrink-0" />
-                    <select
-                      required
-                      value={formData.service}
-                      onChange={(e) =>
-                        setFormData({ ...formData, service: e.target.value })
-                      }
-                      style={{ color: "#ffffff" }}
-                      className="w-full appearance-none bg-transparent py-3.5 pr-10 text-sm sm:text-[15px] !text-white focus:outline-none cursor-pointer"
+                  {/* 5. Custom Services Dropdown */}
+                  <div ref={dropdownRef} className="relative">
+                    <button
+                      type="button"
+                      data-no-modal
+                      onClick={() => setIsDropdownOpen((prev) => !prev)}
+                      className={`relative flex w-full items-center justify-between rounded-none border bg-[#141418] py-3.5 pl-5 pr-4 text-left transition-all cursor-pointer ${
+                        serviceError && !formData.service
+                          ? "border-red-500/80 ring-1 ring-red-500/30"
+                          : isDropdownOpen
+                          ? "border-white/40 ring-1 ring-white/20 bg-[#17171d]"
+                          : "border-white/[0.08] hover:border-white/25"
+                      }`}
+                      aria-haspopup="listbox"
+                      aria-expanded={isDropdownOpen}
                     >
-                      <option value="" hidden className="bg-[#141418] text-white">
-                        Services *
-                      </option>
-                      {SERVICES_OPTIONS.map((srv) => (
-                        <option
-                          key={srv}
-                          value={srv}
-                          className="bg-[#141418] text-white"
+                      <div className="flex items-center gap-3 min-w-0 pr-2">
+                        <Layers className="h-4.5 w-4.5 text-white shrink-0" />
+                        <span
+                          style={{ color: "#ffffff" }}
+                          className={`truncate text-sm sm:text-base ${
+                            formData.service ? "font-medium" : "font-normal"
+                          }`}
                         >
-                          {srv}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown className="pointer-events-none absolute right-5 h-4 w-4 text-white/70" />
+                          {formData.service || "Services *"}
+                        </span>
+                      </div>
+                      <ChevronDown
+                        className={`h-4 w-4 text-white/70 shrink-0 transition-transform duration-200 ${
+                          isDropdownOpen ? "rotate-180 text-white" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Validation Hint */}
+                    {serviceError && !formData.service && (
+                      <p className="mt-1 text-[11px] text-red-400 font-medium tracking-wide">
+                        Please select a service
+                      </p>
+                    )}
+
+                    {/* Custom Dropdown Panel */}
+                    <AnimatePresence>
+                      {isDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -6, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -6, scale: 0.98 }}
+                          transition={{ duration: 0.16, ease: "easeOut" }}
+                          className="absolute left-0 right-0 top-[calc(100%+6px)] z-50 max-h-64 overflow-y-auto rounded-none border border-white/20 bg-[#121216] p-1.5 shadow-[0_25px_60px_rgba(0,0,0,0.95)] backdrop-blur-xl [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/25 [&::-webkit-scrollbar-thumb]:hover:bg-white/40 [&::-webkit-scrollbar-thumb]:rounded-none"
+                          role="listbox"
+                        >
+                          {SERVICE_GROUPS.map((group, groupIdx) => (
+                            <div
+                              key={group.category}
+                              className={
+                                groupIdx > 0
+                                  ? "mt-2 pt-2 border-t border-white/[0.08]"
+                                  : ""
+                              }
+                            >
+                              <div className="flex items-center justify-between px-3.5 pt-2 pb-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">
+                                <span>{group.category}</span>
+                                <span className="text-[9px] font-mono text-white/30 tracking-widest">
+                                  {group.items.length} OPTIONS
+                                </span>
+                              </div>
+                              <div className="flex flex-col gap-0.5">
+                                {group.items.map((item) => {
+                                  const isSelected =
+                                    formData.service === item.label;
+                                  return (
+                                    <button
+                                      key={item.label}
+                                      type="button"
+                                      data-no-modal
+                                      onClick={() => {
+                                        setFormData({
+                                          ...formData,
+                                          service: item.label,
+                                        });
+                                        setServiceError(false);
+                                        setIsDropdownOpen(false);
+                                      }}
+                                      className={`group flex w-full items-center justify-between rounded-none px-3.5 py-2.5 text-left transition-all duration-150 cursor-pointer ${
+                                        isSelected
+                                          ? "bg-white/15 text-white"
+                                          : "text-white/80 hover:bg-white/10 hover:text-white"
+                                      }`}
+                                      role="option"
+                                      aria-selected={isSelected}
+                                    >
+                                      <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                                        <span
+                                          style={{ color: "#ffffff" }}
+                                          className="text-sm font-medium tracking-wide truncate"
+                                        >
+                                          {item.label}
+                                        </span>
+                                      </div>
+                                      <div className="flex items-center gap-2.5 shrink-0">
+                                        <span className="text-[10px] font-mono tracking-wider uppercase text-white/40 group-hover:text-white/70 transition-colors">
+                                          {item.tag}
+                                        </span>
+                                        {isSelected ? (
+                                          <Check className="h-4 w-4 text-white shrink-0" />
+                                        ) : (
+                                          <div className="w-4 shrink-0" />
+                                        )}
+                                      </div>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   {/* Submit Button - Matches other site buttons (SolidButton), sharp corners, no glow */}

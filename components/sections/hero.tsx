@@ -41,18 +41,18 @@ export function Hero() {
           pointer-events-none allows mouse movements to pass through to the 3D canvas.
           We add pointer-events-auto to the text elements so they remain selectable.
         */}
-        <div className="relative z-10 mx-auto flex w-full container max-w-4xl flex-col items-center gap-6 sm:gap-8 px-5 sm:px-8 lg:px-12 text-center pointer-events-none my-auto">
+        <div className="relative z-10 mx-auto flex w-full container max-w-5xl flex-col items-center gap-6 sm:gap-8 px-5 sm:px-8 lg:px-12 text-center pointer-events-none my-auto">
           <div className="hero-anim-element pointer-events-auto">
             <Eyebrow>Strategic Growth</Eyebrow>
           </div>
 
           <ScrollRevealH2
             as="h1"
-            lines={["WE BUILD DIGITAL", "GROWTH SYSTEMS"]}
+            lines={["WE BUILD", "DIGITAL GROWTH SYSTEMS"]}
             highlightWords={["SYSTEMS"]}
             highlightClass="text-ink-muted"
             viewportMargin="0px"
-            className="text-[clamp(2.5rem,1.893rem+2.589vw,5rem)] font-sans uppercase font-medium tracking-[-0.02em] text-ink text-center pointer-events-auto leading-[1.1]"
+            className="text-[clamp(1.65rem,1.25rem+2.4vw,4.25rem)] font-display uppercase font-bold tracking-wide text-ink text-center pointer-events-auto leading-[1.15]"
           />
 
           <div className="hero-anim-element pointer-events-auto">

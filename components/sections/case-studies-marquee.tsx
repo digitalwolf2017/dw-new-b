@@ -98,10 +98,10 @@ export function CaseStudiesMarquee() {
     <section
       id="work"
       data-no-global-reveal
-      className="relative w-full overflow-hidden bg-base py-4 sm:py-6 px-[16px]"
+      className="relative w-full overflow-hidden bg-base py-10 sm:py-14 lg:py-16 px-[16px]"
     >
       {/* The Rounded Container Card: exact black bg and side margins matching Hero and Service Rail */}
-      <div className="relative w-full overflow-hidden rounded-none border border-white/10 bg-black py-9 sm:py-12 lg:py-14 xl:py-16">
+      <div className="relative w-full overflow-hidden rounded-none border border-white/10 bg-black py-10 sm:py-14 lg:py-16 xl:py-20">
           
           {/* Subtle ambient glow */}
           <div
@@ -109,9 +109,9 @@ export function CaseStudiesMarquee() {
             aria-hidden="true"
           />
 
-          <div className="mx-auto flex w-full container flex-col items-start lg:flex-row lg:items-center lg:justify-start gap-10 lg:gap-14 xl:gap-20 px-5 sm:px-8 lg:px-12">
+          <div className="mx-auto flex w-full container flex-col items-start lg:flex-row lg:items-center lg:justify-start px-5 sm:px-8 lg:px-12">
             {/* Left Column: Heading, Divider, Description, CTA */}
-            <div className="flex w-full flex-col items-start lg:max-w-md xl:max-w-lg shrink-0">
+            <div className="flex w-full flex-col items-start lg:w-[52%] shrink-0 pr-6 lg:pr-8">
               <ScrollRevealH2
                 as="h2"
                 lines={["OUR CASE", "STUDIES"]}
@@ -159,7 +159,7 @@ export function CaseStudiesMarquee() {
               />
 
               {/* 3 Columns Track */}
-              <div className="flex h-full w-full gap-3 sm:gap-3.5">
+              <div className="flex h-full w-full gap-3.5 sm:gap-4.5">
                 {/* Column 1 - Moving Up */}
                 <VerticalMarqueeColumn items={COL_1} duration="28s" />
 
