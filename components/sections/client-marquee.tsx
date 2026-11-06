@@ -38,7 +38,7 @@ export function ClientMarquee() {
           <ScrollRevealH2
             as="h2"
             lines={["TRUSTED BY", "INDUSTRY LEADERS"]}
-            className="text-display font-display font-bold text-ink text-center text-4xl sm:text-5xl leading-tight uppercase"
+            className="text-display font-display font-bold text-ink text-center text-[34px] sm:text-[46px] leading-tight uppercase"
           />
           <Body className="max-w-md text-ink-secondary">
             Partnering with ambitious brands to drive meaningful growth.

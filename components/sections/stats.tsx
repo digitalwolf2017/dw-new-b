@@ -276,7 +276,7 @@ export function Stats({ id = "stats" }: { id?: string }) {
                 "GROW FASTER,",
                 "SMARTER"
               ]}
-              className="font-display text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold uppercase tracking-[0.02em] text-white leading-[1.12]"
+              className="font-display text-[28px] sm:text-[34px] lg:text-[42px] xl:text-[46px] font-bold uppercase tracking-[0.02em] text-white leading-[1.12]"
             />
 
             <div className="mt-5 flex flex-col gap-3.5 text-sm sm:text-base leading-relaxed font-normal">

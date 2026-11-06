@@ -22,7 +22,7 @@ export function TechMarquee() {
           <ScrollRevealH2
             as="h2"
             lines={["OUR", "TECHNOLOGIES"]}
-            className="text-display font-display font-bold text-ink text-left text-4xl sm:text-5xl leading-tight uppercase"
+            className="text-display font-display font-bold text-ink text-left text-[34px] sm:text-[46px] leading-tight uppercase"
           />
           <Body className="max-w-xs text-ink-secondary">
             Tools we trust to build, scale, and ship fast.

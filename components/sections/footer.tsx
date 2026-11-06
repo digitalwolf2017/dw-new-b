@@ -233,7 +233,7 @@ export function Footer() {
           <ScrollRevealH2
             as="h2"
             lines={["LET'S BUILD SOMETHING", "AMAZING TOGETHER"]}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-wider text-white leading-tight text-center"
+            className="font-display text-[34px] sm:text-[46px] md:text-6xl lg:text-7xl font-bold uppercase tracking-wider text-white leading-tight text-center"
           />
           
           <div className="h-[2px] w-24 bg-white/20 my-5 sm:my-6" />

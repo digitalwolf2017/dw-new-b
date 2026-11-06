@@ -115,7 +115,7 @@ export function CaseStudiesMarquee() {
               <ScrollRevealH2
                 as="h2"
                 lines={["Client Growth Stories"]}
-                className="font-display text-4xl font-bold uppercase tracking-wide text-white sm:text-5xl lg:text-[44px] xl:text-[50px] leading-[1.08]"
+                className="font-display text-[34px] font-bold uppercase tracking-wide text-white sm:text-[46px] lg:text-[44px] xl:text-[50px] leading-[1.08]"
               />
 
               {/* Accent Divider Line */}

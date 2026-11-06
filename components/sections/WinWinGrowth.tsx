@@ -262,7 +262,7 @@ export default function WinWinGrowth() {
           text="Win-Win Growth."
           highlightWords={["Growth."]}
           highlightClass="text-ink-muted"
-          className="text-display font-display font-bold text-ink text-center mb-8 lg:mb-12 text-4xl sm:text-5xl opacity-100"
+          className="text-display font-display font-bold text-ink text-center mb-8 lg:mb-12 text-[34px] sm:text-[46px] opacity-100"
         />
 
         {/* Hub-and-spoke AI diagram */}

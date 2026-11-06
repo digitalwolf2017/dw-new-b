@@ -98,7 +98,7 @@ export function Contact() {
                 <ScrollRevealH2
                   as="h2"
                   text="CONTACT"
-                  className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white leading-none"
+                  className="font-display text-[34px] sm:text-[46px] lg:text-6xl font-bold uppercase tracking-wider text-white leading-none"
                 />
                 <div className="flex items-center gap-4 mt-3">
                   <div className="h-[2px] w-12 sm:w-16 bg-white/80" />
@@ -106,7 +106,7 @@ export function Contact() {
                     as="h2"
                     text="US"
                     delayOffset={0.08}
-                    className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider text-white leading-none"
+                    className="font-display text-[34px] sm:text-[46px] lg:text-6xl font-bold uppercase tracking-wider text-white leading-none"
                   />
                 </div>
               </div>

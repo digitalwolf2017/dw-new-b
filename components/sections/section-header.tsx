@@ -18,7 +18,7 @@ export function SectionHeader({ eyebrow, title, accent, body }: SectionHeaderPro
         text={`${title} ${accent || ""}`.trim()}
         highlightWords={accent ? [accent] : []}
         highlightClass="text-ink-muted"
-        className="font-display font-bold text-4xl uppercase tracking-wide text-white sm:text-5xl"
+        className="font-display font-bold text-[34px] uppercase tracking-wide text-white sm:text-[46px]"
       />
       <Body className="text-ink-secondary">
         {body}

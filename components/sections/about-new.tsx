@@ -102,7 +102,7 @@ export function AboutNew({
               "PHASE OF DIGITAL",
               "GROWTH."
             ]}
-            className="font-display text-3xl font-bold uppercase tracking-[0.03em] text-white sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[52px] 2xl:text-[58px] leading-[1.12] text-center"
+            className="font-display text-[28px] font-bold uppercase tracking-[0.03em] text-white sm:text-[34px] md:text-[46px] lg:text-[44px] xl:text-[52px] 2xl:text-[58px] leading-[1.12] text-center"
           />
 
           {/* —— ABOUT US —— */}

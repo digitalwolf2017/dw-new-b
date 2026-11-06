@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 export interface ScrollRevealH2Props {
@@ -23,11 +23,24 @@ export default function ScrollRevealH2({
   className = '',
   highlightWords = [],
   highlightClass,
-  viewportMargin = '-60px',
+  viewportMargin = '0px 0px -40px 0px',
   delayOffset = 0,
   children,
 }: ScrollRevealH2Props) {
   const Tag = as;
+  const containerRef = useRef<HTMLElement>(null);
+
+  // Normalize viewportMargin: ensure left/right are 0px so letters are never clipped horizontally on mobile
+  const safeMargin = (!viewportMargin || viewportMargin === '-60px')
+    ? '0px 0px -40px 0px'
+    : viewportMargin.includes(' ')
+    ? viewportMargin
+    : `0px 0px ${viewportMargin} 0px`;
+
+  const isInView = useInView(containerRef, {
+    once: true,
+    margin: safeMargin as any,
+  });
 
   // Resolve lines from lines prop, text prop, or string children
   let resolvedLines: string[] = [];
@@ -55,9 +68,10 @@ export default function ScrollRevealH2({
 
   return (
     <Tag
+      ref={containerRef as any}
       data-scroll-reveal
       className={cn(
-        'overflow-hidden flex flex-col gap-y-1',
+        'flex flex-col gap-y-1',
         isCenter && 'items-center justify-center',
         className
       )}
@@ -69,7 +83,7 @@ export default function ScrollRevealH2({
           <span
             key={lineIndex}
             className={cn(
-              'overflow-hidden flex flex-wrap gap-x-[0.28em] gap-y-1',
+              'flex flex-wrap gap-x-[0.28em] gap-y-1',
               isCenter && 'justify-center'
             )}
           >
@@ -92,16 +106,22 @@ export default function ScrollRevealH2({
 
                     return (
                       <motion.span
-                        key={charIndex}
+                        key={`${lineIndex}-${wordIndex}-${charIndex}`}
                         initial={{
                           clipPath: 'inset(0% 100% 0% 0%)',
                           opacity: 0,
                         }}
-                        whileInView={{
-                          clipPath: 'inset(0% 0% 0% 0%)',
-                          opacity: 1,
-                        }}
-                        viewport={{ once: true, margin: viewportMargin as any }}
+                        animate={
+                          isInView
+                            ? {
+                                clipPath: 'inset(0% 0% 0% 0%)',
+                                opacity: 1,
+                              }
+                            : {
+                                clipPath: 'inset(0% 100% 0% 0%)',
+                                opacity: 0,
+                              }
+                        }
                         transition={{
                           duration: 0.75,
                           delay: delayOffset + currentIndex * 0.075, // Stagger effect per letter 1 by 1

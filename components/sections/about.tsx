@@ -25,7 +25,7 @@ export function About() {
           <ScrollRevealH2
             as="h2"
             text="ABOUT US"
-            className="font-display font-bold text-4xl uppercase tracking-wide text-white sm:text-5xl"
+            className="font-display font-bold text-[34px] uppercase tracking-wide text-white sm:text-[46px]"
           />
           <div className="flex flex-col gap-4">
             <Body size="lg" className="text-ink-secondary">

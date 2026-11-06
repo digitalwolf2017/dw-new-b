@@ -72,7 +72,7 @@ export function WhyChooseUs({ id = "why-choose-us" }: { id?: string }) {
             lines={["WHY", "CHOOSE US?"]}
             highlightWords={["?"]}
             highlightClass="text-ink-muted"
-            className="text-display font-display font-bold text-ink text-4xl sm:text-5xl leading-tight uppercase"
+            className="text-display font-display font-bold text-ink text-[34px] sm:text-[46px] leading-tight uppercase"
           />
           <div className="h-px w-20 bg-white/30" />
           <Body size="lg" className="text-ink-secondary">

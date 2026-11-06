@@ -86,7 +86,7 @@ export default function AiWorkflow({ trackRef, wrapperRef }: AiWorkflowProps) {
           text="AI Automation Workflow"
           highlightWords={["Automation"]}
           highlightClass="text-ink-muted"
-          className="text-display font-display font-bold text-ink text-4xl sm:text-5xl"
+          className="text-display font-display font-bold text-ink text-[34px] sm:text-[46px]"
         />
         <p className="mt-4 text-ink-muted text-body-lg max-w-2xl pointer-events-auto">
           We string together powerful logic, custom data processing, and seamless integrations to build visual automation engines that scale your business.

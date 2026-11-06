@@ -39,7 +39,7 @@ export function JourneyPath() {
           <ScrollRevealH2
             as="h2"
             text="Let us show you how we drive your brand to new heights"
-            className="text-display font-display font-bold text-4xl sm:text-5xl leading-tight text-white uppercase"
+            className="text-display font-display font-bold text-[34px] sm:text-[46px] leading-tight text-white uppercase"
           />
           <p className="text-[20px] text-white/60">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum.
@@ -80,7 +80,7 @@ export function JourneyPath() {
           <ScrollRevealH2
             as="h2"
             text="Let us show you how we drive your brand to new heights"
-            className="text-display font-display font-bold text-4xl sm:text-5xl leading-tight text-white uppercase"
+            className="text-display font-display font-bold text-[34px] sm:text-[46px] leading-tight text-white uppercase"
           />
           <p className="mt-6 max-w-sm text-[20px] text-white/60">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum.

@@ -26,7 +26,7 @@ export function AgencyProcess() {
           <ScrollRevealH2
             as="h2"
             lines={["OUR", "AGENCY", "PROCESS"]}
-            className="text-display font-display font-bold text-ink text-4xl sm:text-5xl uppercase leading-tight"
+            className="text-display font-display font-bold text-ink text-[34px] sm:text-[46px] uppercase leading-tight"
           />
           <div className="h-px w-16 bg-white/30 my-2" />
           <Body className="text-ink-secondary/90 max-w-sm text-[16px] leading-relaxed">

@@ -48,7 +48,7 @@ export function Hero() {
 
           <ScrollRevealH2
             as="h1"
-            lines={["A DECADE OF BUILDING", "DIGITAL ECOSYSTEMS FOR BUSINESS GROWTH"]}
+            lines={["A DECADE OF BUILDING DIGITAL ECOSYSTEMS FOR BUSINESS GROWTH"]}
             highlightWords={["SYSTEMS"]}
             highlightClass="text-ink-muted"
             viewportMargin="0px"
