@@ -41,14 +41,14 @@ export function Hero() {
           pointer-events-none allows mouse movements to pass through to the 3D canvas.
           We add pointer-events-auto to the text elements so they remain selectable.
         */}
-        <div className="relative z-10 mx-auto flex w-full container max-w-5xl flex-col items-center gap-6 sm:gap-8 px-5 sm:px-8 lg:px-12 text-center pointer-events-none my-auto">
+        <div className="relative z-10 mx-auto flex w-full container max-w-7xl flex-col items-center gap-6 sm:gap-8 px-5 sm:px-8 lg:px-12 text-center pointer-events-none my-auto">
           <div className="hero-anim-element pointer-events-auto">
             <Eyebrow>Strategic Growth</Eyebrow>
           </div>
 
           <ScrollRevealH2
             as="h1"
-            lines={["WE BUILD", "DIGITAL GROWTH SYSTEMS"]}
+            lines={["A DECADE OF BUILDING", "DIGITAL ECOSYSTEMS FOR BUSINESS GROWTH"]}
             highlightWords={["SYSTEMS"]}
             highlightClass="text-ink-muted"
             viewportMargin="0px"
@@ -60,10 +60,8 @@ export function Hero() {
           </div>
 
           <div className="hero-anim-element pointer-events-auto">
-            <Body size="lg" className="max-w-2xl text-center">
-              A precision-engineered approach to creative strategy and performance
-              marketing. We scale brands through high-fidelity design and algorithmic
-              intelligence.
+            <Body size="lg" className="max-w-3xl text-center">
+              Your Strategic Growth Partner  |  Powered by Marketing  |  Technology |  AI & Innovation
             </Body>
           </div>
         </div>

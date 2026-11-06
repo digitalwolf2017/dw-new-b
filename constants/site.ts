@@ -4,9 +4,9 @@ export const SITE = {
   shortName: "DW",
   /** Used verbatim in the nav wordmark and the footer bottom bar. */
   wordmark: "DIGITAL WOLF",
-  tagline: "We build digital growth systems",
+  tagline: "A Decade of Building Digital Ecosystems for Business Growth",
   description:
-    "A precision-engineered approach to creative strategy and performance marketing. We scale brands through high-fidelity design and algorithmic intelligence.",
+    "Your Strategic Growth Partner | Powered by Marketing | Technology | AI & Innovation",
   url: "https://digitalwolf.com",
   locale: "en_US",
   founded: 2018,

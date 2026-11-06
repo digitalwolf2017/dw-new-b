@@ -68,9 +68,9 @@ export function Stats({ id = "stats" }: { id?: string }) {
         counter,
         { n1: 0, n2: 0, n3: 0 },
         {
-          n1: 9,
-          n2: 120,
-          n3: 40,
+          n1: 10,
+          n2: 60,
+          n3: 50,
           duration: 2,
           ease: "power2.out",
           scrollTrigger: {
@@ -95,9 +95,9 @@ export function Stats({ id = "stats" }: { id?: string }) {
             }
           },
           onComplete: () => {
-            if (countRef1.current) countRef1.current.textContent = "9+";
-            if (countRef2.current) countRef2.current.textContent = "120+";
-            if (countRef3.current) countRef3.current.textContent = "₹40Cr+";
+            if (countRef1.current) countRef1.current.textContent = "10+";
+            if (countRef2.current) countRef2.current.textContent = "60+";
+            if (countRef3.current) countRef3.current.textContent = "₹50Cr+";
           },
         }
       );
@@ -233,7 +233,7 @@ export function Stats({ id = "stats" }: { id?: string }) {
             {/* Stat 1: 9+ YEARS OF EXPERIENCE */}
             <div className="stat-item-1 relative z-10 flex flex-col items-start lg:absolute lg:top-0 lg:left-0">
               <div className="font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none">
-                <span ref={countRef1}>9+</span>
+                <span ref={countRef1}>10+</span>
               </div>
               <div className="mt-2.5 flex items-stretch border-l-2 border-white/50 pl-2.5">
                 <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-ink-muted leading-[1.3]">
@@ -245,7 +245,7 @@ export function Stats({ id = "stats" }: { id?: string }) {
             {/* Stat 2: 120+ BRANDS ACROSS DIVERSE INDUSTRIES */}
             <div className="stat-item-2 relative z-10 flex flex-col items-start lg:absolute lg:top-[33%] lg:left-[30%] my-6 lg:my-0">
               <div className="font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none">
-                <span ref={countRef2}>120+</span>
+                <span ref={countRef2}>60+</span>
               </div>
               <div className="mt-2.5 flex items-stretch border-l-2 border-white/50 pl-2.5">
                 <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-ink-muted leading-[1.3]">
@@ -257,7 +257,7 @@ export function Stats({ id = "stats" }: { id?: string }) {
             {/* Stat 3: ₹40Cr+ AD SPEND MANAGED - stair-stepped matching reference */}
             <div className="stat-item-3 relative z-10 flex flex-col items-start lg:absolute lg:bottom-0 lg:left-[50%]">
               <div className="font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none whitespace-nowrap">
-                <span ref={countRef3}>₹40Cr+</span>
+                <span ref={countRef3}>₹50Cr+</span>
               </div>
               <div className="mt-2.5 flex items-stretch border-l-2 border-white/50 pl-2.5">
                 <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-ink-muted leading-[1.3]">

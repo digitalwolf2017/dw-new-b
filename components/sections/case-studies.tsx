@@ -109,7 +109,7 @@ export function CaseStudies() {
           <div className="lg:sticky lg:top-32 pr-4 mb-16 lg:mb-32">
             <ScrollRevealH2
               as="h2"
-              lines={["OUR CASE", "STUDIES"]}
+              lines={["Client Growth Stories"]}
               className="text-4xl md:text-5xl font-display font-bold uppercase text-ink leading-[1.1] mb-8 tracking-wide"
             />
             <div className="cs-text-reveal w-12 h-px bg-ink/30 mb-8"></div>

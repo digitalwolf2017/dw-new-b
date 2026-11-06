@@ -102,7 +102,7 @@ export function CaseStudiesMarquee() {
     >
       {/* The Rounded Container Card: exact black bg and side margins matching Hero and Service Rail */}
       <div className="relative w-full overflow-hidden rounded-none border border-white/10 bg-black py-10 sm:py-14 lg:py-16 xl:py-20">
-          
+
           {/* Subtle ambient glow */}
           <div
             className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-white/[0.02] blur-3xl"
@@ -114,7 +114,7 @@ export function CaseStudiesMarquee() {
             <div className="flex w-full flex-col items-start lg:w-[52%] shrink-0 pr-6 lg:pr-8">
               <ScrollRevealH2
                 as="h2"
-                lines={["OUR CASE", "STUDIES"]}
+                lines={["Client Growth Stories"]}
                 className="font-display text-4xl font-bold uppercase tracking-wide text-white sm:text-5xl lg:text-[44px] xl:text-[50px] leading-[1.08]"
               />
 
@@ -147,7 +147,7 @@ export function CaseStudiesMarquee() {
 
             {/* Right Column: Compact 3 Vertical Marquee Sliders in marked position */}
             <div className="relative h-[400px] sm:h-[430px] lg:h-[450px] xl:h-[480px] w-full max-w-[400px] sm:max-w-[440px] lg:max-w-[470px] xl:max-w-[500px] shrink-0 overflow-hidden">
-              
+
               {/* Fade Overlays (Top and Bottom) */}
               <div
                 className="pointer-events-none absolute inset-x-0 top-0 z-20 h-16 bg-gradient-to-b from-black via-black/80 to-transparent sm:h-20"
