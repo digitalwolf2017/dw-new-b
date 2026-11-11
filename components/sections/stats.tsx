@@ -8,6 +8,7 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 export function Stats({ id = "stats" }: { id?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
+  const statsContainerRef = useRef<HTMLDivElement>(null);
   const countRef1 = useRef<HTMLSpanElement>(null);
   const countRef2 = useRef<HTMLSpanElement>(null);
   const countRef3 = useRef<HTMLSpanElement>(null);
@@ -15,39 +16,80 @@ export function Stats({ id = "stats" }: { id?: string }) {
   useGSAP(
     () => {
       const section = sectionRef.current;
+      const statsContainer = statsContainerRef.current;
       if (!section) return;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          end: "center 40%",
-          scrub: 1.2,
-          invalidateOnRefresh: true,
-        },
+      const mm = gsap.matchMedia();
+
+      // Desktop: scrubbed timeline tied to section scroll
+      mm.add("(min-width: 1024px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "center 40%",
+            scrub: 1.2,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        tl.fromTo(
+          ".stat-item-1",
+          { x: -90, opacity: 0 },
+          { x: 0, opacity: 1, ease: "none", duration: 0.45 },
+          0.05
+        );
+
+        tl.fromTo(
+          ".stat-item-2",
+          { x: -90, opacity: 0 },
+          { x: 0, opacity: 1, ease: "none", duration: 0.45 },
+          0.25
+        );
+
+        tl.fromTo(
+          ".stat-item-3",
+          { x: -90, opacity: 0 },
+          { x: 0, opacity: 1, ease: "none", duration: 0.45 },
+          0.45
+        );
       });
 
-      // 3 stats slide in from left one after another directly controlled by scroll
-      tl.fromTo(
-        ".stat-item-1",
-        { x: -90, opacity: 0 },
-        { x: 0, opacity: 1, ease: "none", duration: 0.45 },
-        0.05
-      );
+      // Mobile / Tablet: scrubbed timeline tied directly to statsContainer
+      // 1-by-1 slide in entrance matching desktop feel on smaller screens
+      mm.add("(max-width: 1023px)", () => {
+        const target = statsContainer || section;
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: target,
+            start: "top 85%",
+            end: "center 35%",
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
 
-      tl.fromTo(
-        ".stat-item-2",
-        { x: -90, opacity: 0 },
-        { x: 0, opacity: 1, ease: "none", duration: 0.45 },
-        0.25
-      );
+        tl.fromTo(
+          ".stat-item-1",
+          { x: -45, opacity: 0 },
+          { x: 0, opacity: 1, ease: "none", duration: 0.45 },
+          0.05
+        );
 
-      tl.fromTo(
-        ".stat-item-3",
-        { x: -90, opacity: 0 },
-        { x: 0, opacity: 1, ease: "none", duration: 0.45 },
-        0.45
-      );
+        tl.fromTo(
+          ".stat-item-2",
+          { x: -45, opacity: 0 },
+          { x: 0, opacity: 1, ease: "none", duration: 0.45 },
+          0.25
+        );
+
+        tl.fromTo(
+          ".stat-item-3",
+          { x: -45, opacity: 0 },
+          { x: 0, opacity: 1, ease: "none", duration: 0.45 },
+          0.45
+        );
+      });
 
       // Right content reveals smoothly to full brightness
       gsap.from(".stat-right-content", {
@@ -56,13 +98,13 @@ export function Stats({ id = "stats" }: { id?: string }) {
         duration: 0.8,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
+          trigger: ".stat-right-content",
+          start: "top 85%",
           toggleActions: "play none none none",
         },
       });
 
-      // Numbers count-up animation when scrolling in
+      // Numbers count-up animation when scrolling into the stats container
       const counter = { n1: 0, n2: 0, n3: 0 };
       gsap.fromTo(
         counter,
@@ -74,8 +116,8 @@ export function Stats({ id = "stats" }: { id?: string }) {
           duration: 2,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: section,
-            start: "top 75%",
+            trigger: statsContainer || section,
+            start: "top 80%",
             toggleActions: "restart none none none",
           },
           onStart: () => {
@@ -111,8 +153,8 @@ export function Stats({ id = "stats" }: { id?: string }) {
           duration: 2.5,
           ease: "power2.inOut",
           scrollTrigger: {
-            trigger: section,
-            start: "top 75%",
+            trigger: statsContainer || section,
+            start: "top 80%",
             once: true,
           },
         }
@@ -139,7 +181,10 @@ export function Stats({ id = "stats" }: { id?: string }) {
         {/* 2-Column Grid matching reference layout exactly */}
         <div className="relative z-10 mx-auto grid w-full max-w-6xl xl:max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-20 px-2 sm:px-6">
           {/* Left Column: 3 Staggered Stats with Background Vector Art */}
-          <div className="relative w-full min-h-[380px] sm:min-h-[420px] lg:min-h-[440px] flex flex-col justify-between shrink-0">
+          <div
+            ref={statsContainerRef}
+            className="relative w-full h-[360px] sm:h-[400px] lg:h-[440px] shrink-0"
+          >
             {/* Decorative background vector curves, arch line & icons */}
             <svg
               className="pointer-events-none absolute inset-0 h-full w-full opacity-60 select-none"
@@ -221,7 +266,7 @@ export function Stats({ id = "stats" }: { id?: string }) {
               <g transform="translate(90, 360) scale(0.9)" stroke="rgba(255,255,255,0.22)" strokeWidth="1.5" fill="none">
                 <circle cx="12" cy="12" r="10" />
                 <circle cx="12" cy="12" r="6" />
-                <circle cx="12" cy="12" r="2" />
+                <circle cx="12" cy="2" r="2" />
               </g>
 
               {/* Accent Dots */}
@@ -230,36 +275,36 @@ export function Stats({ id = "stats" }: { id?: string }) {
               <circle cx="430" cy="210" r="2" fill="rgba(255,255,255,0.25)" />
             </svg>
 
-            {/* Stat 1: 9+ YEARS OF EXPERIENCE */}
-            <div className="stat-item-1 relative z-10 flex flex-col items-start lg:absolute lg:top-0 lg:left-0">
-              <div className="font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none">
+            {/* Stat 1: 10+ YEARS OF EXPERIENCE */}
+            <div className="stat-item-1 absolute top-0 left-0 z-10 flex flex-col items-start">
+              <div className="font-sans text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none">
                 <span ref={countRef1}>10+</span>
               </div>
-              <div className="mt-2.5 flex items-stretch border-l-2 border-white/50 pl-2.5">
+              <div className="mt-2 sm:mt-2.5 flex items-stretch border-l-2 border-white/50 pl-2 sm:pl-2.5">
                 <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-ink-muted leading-[1.3]">
                   YEARS OF<br />EXPERIENCE
                 </span>
               </div>
             </div>
 
-            {/* Stat 2: 120+ BRANDS ACROSS DIVERSE INDUSTRIES */}
-            <div className="stat-item-2 relative z-10 flex flex-col items-start lg:absolute lg:top-[33%] lg:left-[30%] my-6 lg:my-0">
-              <div className="font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none">
+            {/* Stat 2: 60+ BRANDS ACROSS DIVERSE INDUSTRIES */}
+            <div className="stat-item-2 absolute top-[30%] left-[24%] sm:top-[33%] sm:left-[30%] z-10 flex flex-col items-start">
+              <div className="font-sans text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none">
                 <span ref={countRef2}>60+</span>
               </div>
-              <div className="mt-2.5 flex items-stretch border-l-2 border-white/50 pl-2.5">
+              <div className="mt-2 sm:mt-2.5 flex items-stretch border-l-2 border-white/50 pl-2 sm:pl-2.5">
                 <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-ink-muted leading-[1.3]">
                   BRANDS<br />ACROSS DIVERSE<br />INDUSTRIES
                 </span>
               </div>
             </div>
 
-            {/* Stat 3: ₹40Cr+ AD SPEND MANAGED - stair-stepped matching reference */}
-            <div className="stat-item-3 relative z-10 flex flex-col items-start lg:absolute lg:bottom-0 lg:left-[50%]">
-              <div className="font-sans text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none whitespace-nowrap">
+            {/* Stat 3: ₹50Cr+ AD SPEND MANAGED - stair-stepped matching reference */}
+            <div className="stat-item-3 absolute bottom-0 right-0 sm:right-auto sm:left-[50%] lg:left-[52%] z-10 flex flex-col items-start">
+              <div className="font-sans text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none whitespace-nowrap">
                 <span ref={countRef3}>₹50Cr+</span>
               </div>
-              <div className="mt-2.5 flex items-stretch border-l-2 border-white/50 pl-2.5">
+              <div className="mt-2 sm:mt-2.5 flex items-stretch border-l-2 border-white/50 pl-2 sm:pl-2.5">
                 <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-ink-muted leading-[1.3]">
                   AD SPEND<br />MANAGED
                 </span>

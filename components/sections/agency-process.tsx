@@ -25,8 +25,8 @@ export function AgencyProcess() {
         <div className="flex flex-col gap-6 lg:sticky lg:top-32">
           <ScrollRevealH2
             as="h2"
-            lines={["OUR", "AGENCY", "PROCESS"]}
-            className="text-display font-display font-bold text-ink text-[34px] sm:text-[46px] uppercase leading-tight"
+            text="OUR AGENCY PROCESS"
+            className="font-display font-bold uppercase tracking-wide text-white text-[26px] xs:text-[28px] sm:text-[34px] md:text-[46px] leading-tight"
           />
           <div className="h-px w-16 bg-white/30 my-2" />
           <Body className="text-ink-secondary/90 max-w-sm text-[16px] leading-relaxed">

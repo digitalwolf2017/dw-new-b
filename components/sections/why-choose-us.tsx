@@ -69,10 +69,10 @@ export function WhyChooseUs({ id = "why-choose-us" }: { id?: string }) {
           <Eyebrow>OUR SERVICES</Eyebrow>
           <ScrollRevealH2
             as="h2"
-            lines={["WHY", "CHOOSE US?"]}
+            text="WHY CHOOSE US?"
             highlightWords={["?"]}
             highlightClass="text-ink-muted"
-            className="text-display font-display font-bold text-ink text-[34px] sm:text-[46px] leading-tight uppercase"
+            className="font-display font-bold uppercase tracking-wide text-white text-[26px] xs:text-[28px] sm:text-[34px] md:text-[46px] leading-tight"
           />
           <div className="h-px w-20 bg-white/30" />
           <Body size="lg" className="text-ink-secondary">

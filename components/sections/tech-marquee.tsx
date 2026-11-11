@@ -21,8 +21,8 @@ export function TechMarquee() {
         <div className="flex w-full shrink-0 flex-col gap-4 lg:w-1/3">
           <ScrollRevealH2
             as="h2"
-            lines={["OUR", "TECHNOLOGIES"]}
-            className="text-display font-display font-bold text-ink text-left text-[34px] sm:text-[46px] leading-tight uppercase"
+            text="OUR TECHNOLOGIES"
+            className="font-display font-bold uppercase tracking-wide text-white text-left text-[26px] xs:text-[28px] sm:text-[34px] md:text-[46px] leading-tight"
           />
           <Body className="max-w-xs text-ink-secondary">
             Tools we trust to build, scale, and ship fast.

@@ -114,8 +114,8 @@ export function CaseStudiesMarquee() {
             <div className="flex w-full flex-col items-start lg:w-[52%] shrink-0 pr-6 lg:pr-8">
               <ScrollRevealH2
                 as="h2"
-                lines={["Client Growth Stories"]}
-                className="font-display text-[34px] font-bold uppercase tracking-wide text-white sm:text-[46px] lg:text-[44px] xl:text-[50px] leading-[1.08]"
+                text="Client Growth Stories"
+                className="font-display text-[26px] xs:text-[28px] sm:text-[34px] md:text-[46px] lg:text-[44px] xl:text-[50px] font-bold uppercase tracking-wide text-white leading-[1.08]"
               />
 
               {/* Accent Divider Line */}
