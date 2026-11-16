@@ -5,34 +5,34 @@ import { Body } from "@/components/ui/body";
 import { cn } from "@/lib/utils";
 
 const CLIENTS = [
-  "George Telegraph",
-  "Puma",
-  "Tata Motors",
-  "KFC",
-  "Dominos",
-  "Reliance",
-  "HDFC Bank",
-  "ICICI Bank",
+  "MOOPLE",
+  "SRI SIKHAYATAN",
+  "CEEBEE DESIGN STUDIO",
+  "ADAMAS",
+  "MOOPLE",
+  "SRI SIKHAYATAN",
+  "CEEBEE DESIGN STUDIO",
+  "ADAMAS",
 ];
 
 const CLIENTS_2 = [
-  "Tech Mahindra",
-  "Flipkart",
-  "Myntra",
-  "Nike",
-  "Adidas",
-  "Reebok",
-  "L'Oreal",
-  "Unilever",
+  "SASSYA",
+  "NARAYANA",
+  "I-LEAD",
+  "BEYUVANA",
+  "SASSYA",
+  "NARAYANA",
+  "I-LEAD",
+  "BEYUVANA",
 ];
 
 export function ClientMarquee() {
   return (
     <section className="overflow-hidden py-24 relative bg-base">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.02)_0%,transparent_70%)]"></div>
-      
+
       <div className="flex w-full flex-col items-center gap-16 lg:gap-24">
-        
+
         {/* Top: Text */}
         <div className="flex w-full flex-col items-center text-center gap-4 px-5 sm:px-8 lg:px-12 relative z-10">
           <ScrollRevealH2
