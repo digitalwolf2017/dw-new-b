@@ -17,7 +17,7 @@ interface AboutNewProps {
 export function AboutNew({
   id = "about",
   topImageSrc = "/images/about-workspace.jpg",
-  bottomImageSrc = "/images/about-workspace.jpg",
+  bottomImageSrc = "/images/abt-1.png",
 }: AboutNewProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
